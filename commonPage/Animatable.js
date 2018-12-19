@@ -1,27 +1,19 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * Created by supervons on 2018/12/19.
+ * 动画示例页面
+ * react-native-animatable test page
  */
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Platform,
     StyleSheet,
     Text,
-    View,
-    TouchableWithoutFeedback
+    View
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
 export default class App extends Component {
+
     handleViewRef = ref => this.view = ref;
 
     wobble = () => this.view.wobble(800).then(endState => console.log(endState.finished ? 'wobble finished' : 'wobble cancelled'));
@@ -33,18 +25,12 @@ export default class App extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
                 <TouchableWithoutFeedback onPress={this.rubberBand}>
                     <Animatable.View ref={this.handleViewRef}>
-                        <Text style={styles.instructions}>
-                            To get started, edit App.js
+                        <Text style={styles.welcome}>
+                            点击我看效果
                         </Text>
                     </Animatable.View></TouchableWithoutFeedback>
-                <Text style={styles.instructions}>
-                    {instructions}
-                </Text>
             </View>
         );
     }
