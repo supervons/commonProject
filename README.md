@@ -1,6 +1,6 @@
 # commonProject
-基于react-native v0.52.2版本创建的通用项目，目的在于累积组件，拓展业务新能力。
-commonProject base on react-native v0.52.2
+基于react-native v0.53版本创建的通用项目，目的在于累积组件，拓展业务新能力。
+commonProject base on react-native v0.53
 
 # 目前包含的组件：
 1.动画组件：react-native-animatable 
