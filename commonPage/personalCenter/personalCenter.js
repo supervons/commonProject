@@ -4,22 +4,24 @@
  * user main page
  */
 import React, {Component} from 'react';
-import {Container, Header, Content, Footer, FooterTab, Button, Icon, Text, Card, CardItem, Body} from 'native-base';
+import {TouchableNativeFeedback,Alert} from 'react-native';
+import {Container, Header, Content,Badge, Footer, FooterTab, Button, Icon, Text} from 'native-base';
 export default class MainPage extends Component {
 
     constructor(props) {
         super(props);
         this.toPersonalCenter = this.toPersonalCenter.bind(this);
         this.toMainPage = this.toMainPage.bind(this);
-
+        this.toLoginPage = this.toLoginPage.bind(this);
     }
 
     static navigationOptions = {
-        title: '主页面',
+        title: '个人中心',
         gesturesEnabled: false,
         headerStyle: {                                 //导航栏样式设置
             backgroundColor: '#8bc9ff',
         },
+        headerRight:<Icon name="ios-settings-outline"></Icon>,
     };
 
     toMainPage() {
@@ -30,34 +32,34 @@ export default class MainPage extends Component {
         this.props.navigation.replace('PersonalCenter');
     }
 
+    toLoginPage() {
+        Alert.alert('提示', '确认退出吗？',
+            [{
+                text: "取消", onPress: ()=> {
+                }
+            },
+                {
+                    text: "确定", onPress: ()=> {
+                    this.props.navigation.replace('Login')
+                }
+                }
+            ]
+        );
+    }
+
     render() {
         return (
             <Container>
                 <Content>
-                    <Card style={{marginTop: 50}}>
-                        <CardItem header>
-                            <Text>CommonProject</Text>
-                        </CardItem>
-                        <CardItem>
-                            <Body>
-                            <Text>
-                                这是一个用于累积功能的轮子项目
-                            </Text>
-                            <Text>
-                                This is a wheel project for cumulative functions
-                            </Text>
-                            </Body>
-                        </CardItem>
-                        <CardItem footer>
-                            <Text>GitHub:https://github.com/supervons/commonProject</Text>
-                        </CardItem>
-                    </Card>
+                    <Button block onPress={this.toLoginPage}>
+                        <Text>退出</Text>
+                    </Button>
                 </Content>
                 <Footer>
                     <FooterTab>
-                        <Button vertical active
+                        <Button vertical
                                 onPress={this.toMainPage}>
-                            <Icon name="ios-apps"/>
+                            <Icon name="apps"/>
                             <Text>应用</Text>
                         </Button>
                         <Button vertical>
@@ -68,9 +70,8 @@ export default class MainPage extends Component {
                             <Icon active name="navigate"/>
                             <Text>导航</Text>
                         </Button>
-                        <Button vertical
-                                onPress={this.toPersonalCenter}>
-                            <Icon name="person"/>
+                        <Button vertical active>
+                            <Icon name="ios-person"/>
                             <Text>我的</Text>
                         </Button>
                     </FooterTab>
