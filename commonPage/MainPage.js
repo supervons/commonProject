@@ -1,9 +1,11 @@
 /**
- * Created by supervons on 2018/12/19.
+ * Created by supervons on 2018/12/20.
+ * 用户主界面
+ * user main page
  */
 import React, { Component } from 'react';
 import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text } from 'native-base';
-export default class NativeBase extends Component {
+export default class MainPage extends Component {
     render() {
         return (
             <Container>

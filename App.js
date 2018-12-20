@@ -13,7 +13,22 @@ import {
     TouchableWithoutFeedback
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import { createStackNavigator } from "react-navigation";
+import LoginPage from './commonPage/Login/loginPage'
+import MainPage from './commonPage/MainPage';
 
+const RootStack = createStackNavigator({
+        Login: {
+            screen: LoginPage
+        },
+        MainPage: {
+            screen: MainPage
+        }
+    },
+    {//定义配置
+        initialRouteName: 'Login',     //设置初始路由为登录界面
+    }
+)
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -31,22 +46,25 @@ export default class App extends Component {
     bounce = () => this.view.wobble(800).then(endState => console.log(endState.finished ? 'bounce finished' : 'bounce cancelled'));
 
     render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <TouchableWithoutFeedback onPress={this.rubberBand}>
-                    <Animatable.View ref={this.handleViewRef}>
-                        <Text style={styles.instructions}>
-                            To get started, edit App.js
-                        </Text>
-                    </Animatable.View></TouchableWithoutFeedback>
-                <Text style={styles.instructions}>
-                    {instructions}
-                </Text>
-            </View>
-        );
+        return(
+            <RootStack/>
+        )
+        // return (
+        //     <View style={styles.container}>
+        //         <Text style={styles.welcome}>
+        //             Welcome to React Native!
+        //         </Text>
+        //         <TouchableWithoutFeedback onPress={this.rubberBand}>
+        //             <Animatable.View ref={this.handleViewRef}>
+        //                 <Text style={styles.instructions}>
+        //                     To get started, edit App.js
+        //                 </Text>
+        //             </Animatable.View></TouchableWithoutFeedback>
+        //         <Text style={styles.instructions}>
+        //             {instructions}
+        //         </Text>
+        //     </View>
+        // );
     }
 }
 
