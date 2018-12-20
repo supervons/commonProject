@@ -6,10 +6,14 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text } from 'native-base';
 export default class MainPage extends Component {
+    static navigationOptions = {
+        title: '主页面',
+        headerLeft: null,
+        gesturesEnabled:false
+    };
     render() {
         return (
             <Container>
-                <Header />
                 <Content />
                 <Footer>
                     <FooterTab>

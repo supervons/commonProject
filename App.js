@@ -10,10 +10,10 @@ import LoginPage from './commonPage/Login/loginPage'
 import MainPage from './commonPage/MainPage';
 
 const RootStack = createStackNavigator({
-        Login: {
+        Login: { //登录界面
             screen: LoginPage
         },
-        MainPage: {
+        MainPage: { //主界面
             screen: MainPage
         }
     },

@@ -22,7 +22,7 @@ export default class LoginPage extends Component {
             alert('用户名和密码都必须输入噢');
         }
         else if(userName === "admin" && passWord === "123"){
-            alert('sussced');
+            this.props.navigation.navigate('MainPage');
         }else{
             alert('用户名或者密码错误');
         }
