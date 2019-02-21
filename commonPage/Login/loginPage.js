@@ -2,13 +2,15 @@
  * Created by supervons on 2018/12/20.
  */
 import React, {Component} from 'react';
-import {Container, Header, Content, Form, Item, Input, Label, Button, Text,} from 'native-base';
+import {Container, Header, Content, Form, Item, Input, Icon, Label, Button, Text,} from 'native-base';
 import CommonStyle from '../CommonProperties/CommonStyle';
+import OperationActions from '../Components/operationActions'
 
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.loginAction = this.loginAction.bind(this);
+        this.toRegisterPage = this.toRegisterPage.bind(this);
         this.state = ({
             userName: '',
             passWord: '',
@@ -23,21 +25,24 @@ export default class LoginPage extends Component {
     loginAction(){
         const userName = this.state.userName;
         const passWord = this.state.passWord;
-        if(userName === "" || passWord === ""){
-            alert('用户名和密码都必须输入噢');
-        }
-        else if(userName === "admin" && passWord === "123"){
+        OperationActions.getTestAction({
+            pageId: '95000001',
+        }, (response) => {
             this.props.navigation.replace('MainPage');
-        }else{
-            alert('用户名或者密码错误');
-        }
+            alert(JSON.stringify(response))
+        }, (error) => {
+            alert(error);
+        });
     }
 
+    toRegisterPage(){
+        this.props.navigation.navigate('Register');
+    }
     render() {
         return (
             <Container>
                 <Content>
-                    <Form style={{marginTop: 120}}>
+                    <Form style={{marginTop: 220}}>
                         <Item floatingLabel>
                             <Label>用户名/Username</Label>
                             <Input onChangeText={(text) => this.setState({ userName: text })}
@@ -52,7 +57,10 @@ export default class LoginPage extends Component {
                         <Button block
                                 style={CommonStyle.buttonStyle}
                                 onPress={this.loginAction}><Text>登录</Text></Button>
-                        <Button block style={CommonStyle.buttonStyle}><Text>去注册</Text></Button>
+                        <Text style={CommonStyle.textStyle}
+                                onPress={this.toRegisterPage}>
+                            <Text >免费注册></Text>
+                        </Text>
                     </Form>
                 </Content>
             </Container>

@@ -5,17 +5,24 @@
  */
 
 import {
-  StyleSheet,
-  Dimensions
-  } from 'react-native';
+    StyleSheet,
+    Dimensions
+} from 'react-native';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
 const CommonStyle = StyleSheet.create({
-      buttonStyle:{
-        marginTop:15
-      }
+    buttonStyle: {
+        marginTop: 15,
+        marginLeft: 20,
+        marginRight:20
+    },
+    textStyle:{
+        marginTop: 15,
+        textAlign:'right',
+        marginRight: 25,
+    }
 });
 
 module.exports = CommonStyle;
