@@ -16,6 +16,10 @@ Of course, you can also develop based on this project. It would be better if you
 文件位置：Fetch/HttpUtils.js
 作用：通过在Components/commonLinks.js中设置接口api地址，在同目录operationActions.js中调用Fetch/HttpUtils中进行请求，可选get/post。
 
+3.Loading动画组件:commonPage/Spinner/spinner.js
+作用：用于网络请求中时，展示loading动画，增强交互。
+![Loading动画组件展示](commonPage/image/exhibitionPicture/SpinnerShows.gif)
+
 ## Currently included components:
 1.Animation component react-native-animatable 
 Folder:commonPage/Animatable/Animatable.js
@@ -23,3 +27,6 @@ Folder:commonPage/Animatable/Animatable.js
 2. Network component: HttpUtils.js
 File location: Fetch/HttpUtils.js
 Role: By setting the interface api address in Components/commonLinks.js, call Fetch/HttpUtils in the same directory operationActions.js to make the request, optional get/post.
+
+3.Loading animation component: commonPage/Spinner/spinner.js
+Role: When used in a network request, display loading animation and enhance interaction.
