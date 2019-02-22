@@ -4,8 +4,9 @@
 import React, {Component} from 'react';
 import {Container, Header, Content, Form, Item, Input, Icon, Label, Button, Text,} from 'native-base';
 import CommonStyle from '../CommonProperties/CommonStyle';
-import OperationActions from '../Components/operationActions'
-
+import OperationActions from '../Components/operationActions';
+import Spinner from '../Spinner/spinner';
+import {Modal,View} from 'react-native';
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +15,7 @@ export default class LoginPage extends Component {
         this.state = ({
             userName: '',
             passWord: '',
+            loginSpinner:false,
         });
     }
     static navigationOptions = {
@@ -25,13 +27,18 @@ export default class LoginPage extends Component {
     loginAction(){
         const userName = this.state.userName;
         const passWord = this.state.passWord;
+        this.setState({
+            loginSpinner:true,
+        })
         OperationActions.getTestAction({
             pageId: '95000001',
         }, (response) => {
+            this.setState({
+                loginSpinner:false,
+            })
             this.props.navigation.replace('MainPage');
-            alert(JSON.stringify(response))
         }, (error) => {
-            alert(error);
+            alert(JSON.stringify(error));
         });
     }
 
@@ -54,6 +61,11 @@ export default class LoginPage extends Component {
                             <Input secureTextEntry={true}
                                    onChangeText={(text) => this.setState({ passWord: text })}/>
                         </Item>
+                        <Spinner
+                            showSpinner={this.state.loginSpinner}
+                            spinkerSize={50}
+                            spinkerType='Wave'
+                            spinkerColor='#3B77FF'/>
                         <Button block
                                 style={CommonStyle.buttonStyle}
                                 onPress={this.loginAction}><Text>登录</Text></Button>

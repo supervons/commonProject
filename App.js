@@ -11,6 +11,8 @@ import MainPage from './commonPage/MainPage';
 import SignBoardView from './commonPage/SignTest/signBoardView';
 import PersonalCenter from './commonPage/personalCenter/personalCenter';
 import Register from './commonPage/Registered/register';
+import SpinnerShows from './commonPage/Spinner/spinnerShows';
+
 const RootStack = createStackNavigator({
         Login: { //登录界面
             screen: LoginPage
@@ -26,6 +28,9 @@ const RootStack = createStackNavigator({
         },
         Register:{// 注册页面
             screen:Register
+        },
+        SpinnerShows:{// 加载动画页面
+            screen:SpinnerShows
         }
 
     },

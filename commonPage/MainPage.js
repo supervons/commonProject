@@ -11,7 +11,7 @@ export default class MainPage extends Component {
         super(props);
         this.toPersonalCenter = this.toPersonalCenter.bind(this);
         this.toMainPage = this.toMainPage.bind(this);
-
+        this.toSpinnerShows = this.toSpinnerShows.bind(this);
     }
 
     static navigationOptions = {
@@ -28,6 +28,10 @@ export default class MainPage extends Component {
 
     toPersonalCenter() {
         this.props.navigation.replace('PersonalCenter');
+    }
+
+    toSpinnerShows() {
+        this.props.navigation.push('SpinnerShows');
     }
 
     render() {
@@ -52,6 +56,7 @@ export default class MainPage extends Component {
                             <Text>GitHub:https://github.com/supervons/commonProject</Text>
                         </CardItem>
                     </Card>
+                    <Button block primary onPress={this.toSpinnerShows}><Text> Loading加载动画展示>>> </Text></Button>
                 </Content>
                 <Footer>
                     <FooterTab>
