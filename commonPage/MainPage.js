@@ -35,6 +35,10 @@ export default class MainPage extends Component {
     }
 
     render() {
+        if(this.props.navigation.state.params !==undefined){
+            const param = this.props.navigation.state.params.param;
+            alert(param.userName + '欢迎登录!');
+        }
         return (
             <Container>
                 <Content>

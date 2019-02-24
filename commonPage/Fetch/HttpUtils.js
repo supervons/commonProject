@@ -41,7 +41,7 @@ const timeoutFetch = (original_fetch, timeout = 30000) => {
     let timeout_promise = new Promise((resolve, reject) => {
         timeoutBlock = () => {
             // 请求超时处理
-            reject('timeout promise')
+            reject('请求超时，请重试！')
         }
     })
 
@@ -78,7 +78,7 @@ export default class HttpUtils extends Component {
             if (response.ok) {
                 return response.json()
             } else {
-                alert(response)
+                alert(JSON.stringify(response))
             }
         }).then(response => {
             // response.code：是与服务器端约定code：200表示请求成功，非200表示请求失败，message：请求失败内容

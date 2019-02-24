@@ -12,7 +12,7 @@ import SignBoardView from './commonPage/SignTest/signBoardView';
 import PersonalCenter from './commonPage/personalCenter/personalCenter';
 import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
-
+import { Root } from "native-base";
 const RootStack = createStackNavigator({
         Login: { //登录界面
             screen: LoginPage
@@ -32,7 +32,6 @@ const RootStack = createStackNavigator({
         SpinnerShows:{// 加载动画页面
             screen:SpinnerShows
         }
-
     },
     {//定义配置
         initialRouteName: 'Login',     //设置初始路由为登录界面
@@ -49,7 +48,9 @@ export default class App extends Component {
 
     render() {
         return (
-            <RootStack/>
+            <Root>
+                <RootStack/>
+            </Root>
         )
     }
 }

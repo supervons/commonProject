@@ -6,45 +6,61 @@ import {Container, Header, Content, Form, Item, Input, Icon, Label, Button, Text
 import CommonStyle from '../CommonProperties/CommonStyle';
 import OperationActions from '../Components/operationActions';
 import Spinner from '../Spinner/spinner';
-import {Modal,View} from 'react-native';
+import {Modal, View} from 'react-native';
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.loginAction = this.loginAction.bind(this);
         this.toRegisterPage = this.toRegisterPage.bind(this);
         this.state = ({
-            userName: '',
+            loginId: '',
             passWord: '',
-            loginSpinner:false,
+            loginSpinner: false,
         });
     }
+
     static navigationOptions = {
-        headerTransparent:true,
-        headerStyle: {
-        },
+        headerTransparent: true,
+        headerStyle: {},
     };
 
-    loginAction(){
-        const userName = this.state.userName;
+    loginAction() {
+        const loginId = this.state.loginId;
         const passWord = this.state.passWord;
+        if (loginId === '') {
+            alert('请输入用户名');
+            return;
+        } else if (passWord === '') {
+            alert('请输入密码');
+            return;
+        }
         this.setState({
-            loginSpinner:true,
+            loginSpinner: true,
         })
-        OperationActions.getTestAction({
-            pageId: '95000001',
+        OperationActions.getUserLoginAction({
+            loginId: loginId,
+            passWord: passWord
         }, (response) => {
-            this.setState({
-                loginSpinner:false,
-            })
-            this.props.navigation.replace('MainPage');
+            if (response.code !== 'fail') {
+                this.setState({
+                    loginSpinner: false,
+                })
+                const param = response.data;
+                this.props.navigation.replace('MainPage', {param: param});
+            } else {
+                this.setState({
+                    loginSpinner: false,
+                })
+                alert(response.msg);
+            }
         }, (error) => {
-            alert(JSON.stringify(error));
         });
     }
 
-    toRegisterPage(){
+    toRegisterPage() {
         this.props.navigation.navigate('Register');
     }
+
     render() {
         return (
             <Container>
@@ -52,14 +68,16 @@ export default class LoginPage extends Component {
                     <Form style={{marginTop: 220}}>
                         <Item floatingLabel>
                             <Label>用户名/Username</Label>
-                            <Input onChangeText={(text) => this.setState({ userName: text })}
+                            <Input onChangeText={(text) => this.setState({loginId: text})}
                                    autoCorrect={false}
-                                   autoCapitalize="none"/>
+                                   autoCapitalize="none"
+                                   value={this.state.loginId}/>
                         </Item>
                         <Item floatingLabel>
                             <Label>密码/Password</Label>
                             <Input secureTextEntry={true}
-                                   onChangeText={(text) => this.setState({ passWord: text })}/>
+                                   onChangeText={(text) => this.setState({passWord: text})}
+                                   vauel={this.state.passWord}/>
                         </Item>
                         <Spinner
                             showSpinner={this.state.loginSpinner}
@@ -70,7 +88,7 @@ export default class LoginPage extends Component {
                                 style={CommonStyle.buttonStyle}
                                 onPress={this.loginAction}><Text>登录</Text></Button>
                         <Text style={CommonStyle.textStyle}
-                                onPress={this.toRegisterPage}>
+                              onPress={this.toRegisterPage}>
                             <Text >免费注册></Text>
                         </Text>
                     </Form>

@@ -4,6 +4,16 @@
 import CommonLink from './commonLinks';
 import HttpUtils from '../Fetch/HttpUtils';
 
+const _getUserLoginAction = (param, callback, failure) => {
+    const requestUrl = CommonLink.fetchLoginIn();
+    return HttpUtils.postRequrst(requestUrl, param)
+        .then((responseData) => {
+            callback(responseData);
+        }, (errorData) => {
+            failure(errorData);
+        });
+};
+
 const _getTestAction = (param, callback, failure) => {
     const requestUrl = CommonLink.fetchLogOut();
     return HttpUtils.getRequest(requestUrl, param)
@@ -15,6 +25,7 @@ const _getTestAction = (param, callback, failure) => {
 };
 
 const operationActions = {
+    getUserLoginAction: (param, callback, failure) => _getUserLoginAction(param, callback, failure),
     getTestAction: (param, callback, failure) => _getTestAction(param, callback, failure),
 };
 
