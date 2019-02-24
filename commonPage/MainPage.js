@@ -4,7 +4,7 @@
  * user main page
  */
 import React, {Component} from 'react';
-import {Container, Header, Content, Footer, FooterTab, Button, Icon, Text, Card, CardItem, Body} from 'native-base';
+import {Container, Header, Content, Footer, FooterTab, Toast, Button, Icon, Text, Card, CardItem, Body} from 'native-base';
 export default class MainPage extends Component {
 
     constructor(props) {
@@ -37,7 +37,7 @@ export default class MainPage extends Component {
     render() {
         if(this.props.navigation.state.params !==undefined){
             const param = this.props.navigation.state.params.param;
-            alert(param.userName + '欢迎登录!');
+            Toast.show({text: param.userName + '欢迎登录!',buttonText:'好的',type:'success'});
         }
         return (
             <Container>

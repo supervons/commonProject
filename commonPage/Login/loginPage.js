@@ -2,7 +2,7 @@
  * Created by supervons on 2018/12/20.
  */
 import React, {Component} from 'react';
-import {Container, Header, Content, Form, Item, Input, Icon, Label, Button, Text,} from 'native-base';
+import {Container, Header, Content, Form, Item, Input,Toast, Icon, Label, Button, Text,} from 'native-base';
 import CommonStyle from '../CommonProperties/CommonStyle';
 import OperationActions from '../Components/operationActions';
 import Spinner from '../Spinner/spinner';
@@ -28,10 +28,10 @@ export default class LoginPage extends Component {
         const loginId = this.state.loginId;
         const passWord = this.state.passWord;
         if (loginId === '') {
-            alert('请输入用户名');
+            Toast.show({text:'请输入用户名',buttonText:'好的',type:'danger'});
             return;
         } else if (passWord === '') {
-            alert('请输入密码');
+            Toast.show({text:'请输入密码',buttonText:'好的',type:'danger'});
             return;
         }
         this.setState({
