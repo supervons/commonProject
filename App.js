@@ -8,10 +8,10 @@ import React, {Component} from 'react';
 import {createStackNavigator} from "react-navigation";
 import LoginPage from './commonPage/Login/loginPage'
 import MainPage from './commonPage/MainPage';
-import SignBoardView from './commonPage/SignTest/signBoardView';
 import PersonalCenter from './commonPage/personalCenter/personalCenter';
 import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
+import News from './commonPage/News/news';
 import { Root } from "native-base";
 const RootStack = createStackNavigator({
         Login: { //登录界面
@@ -23,14 +23,14 @@ const RootStack = createStackNavigator({
         PersonalCenter: { //我的（个人中心）
             screen: PersonalCenter
         },
-        SignBoardView: { //手写签名页面
-            screen: SignBoardView
-        },
         Register:{// 注册页面
             screen:Register
         },
         SpinnerShows:{// 加载动画页面
             screen:SpinnerShows
+        },
+        News:{
+            screen:News
         }
     },
     {//定义配置

@@ -100,7 +100,7 @@ export default class HttpUtils extends Component {
      * @param params 请求参数
      * @returns {Promise}
      */
-    static postRequrst = (url, params = {}) => {
+    static postRequest = (url, params = {}) => {
         return timeoutFetch(fetch(url, {
             method: 'POST',
             headers: header,

@@ -12,6 +12,7 @@ export default class MainPage extends Component {
         this.toPersonalCenter = this.toPersonalCenter.bind(this);
         this.toMainPage = this.toMainPage.bind(this);
         this.toSpinnerShows = this.toSpinnerShows.bind(this);
+        this.toNews = this.toNews.bind(this);
     }
 
     static navigationOptions = {
@@ -34,11 +35,11 @@ export default class MainPage extends Component {
         this.props.navigation.push('SpinnerShows');
     }
 
+    toNews() {
+        this.props.navigation.replace('News');
+    }
+
     render() {
-        if(this.props.navigation.state.params !==undefined){
-            const param = this.props.navigation.state.params.param;
-            Toast.show({text: param.userName + '欢迎登录!',buttonText:'好的',type:'success'});
-        }
         return (
             <Container>
                 <Content>
@@ -73,9 +74,10 @@ export default class MainPage extends Component {
                             <Icon name="camera"/>
                             <Text>相机</Text>
                         </Button>
-                        <Button vertical>
-                            <Icon active name="navigate"/>
-                            <Text>导航</Text>
+                        <Button vertical
+                                onPress={this.toNews}>
+                            <Icon name="radio"/>
+                            <Text>新闻</Text>
                         </Button>
                         <Button vertical
                                 onPress={this.toPersonalCenter}>

@@ -6,7 +6,7 @@ import HttpUtils from '../Fetch/HttpUtils';
 
 const _getUserLoginAction = (param, callback, failure) => {
     const requestUrl = CommonLink.fetchLoginIn();
-    return HttpUtils.postRequrst(requestUrl, param)
+    return HttpUtils.postRequest(requestUrl, param)
         .then((responseData) => {
             callback(responseData);
         }, (errorData) => {

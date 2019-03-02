@@ -13,6 +13,7 @@ export default class MainPage extends Component {
         this.toPersonalCenter = this.toPersonalCenter.bind(this);
         this.toMainPage = this.toMainPage.bind(this);
         this.toLoginPage = this.toLoginPage.bind(this);
+        this.toNews = this.toNews.bind(this);
     }
 
     static navigationOptions = {
@@ -30,6 +31,10 @@ export default class MainPage extends Component {
 
     toPersonalCenter() {
         this.props.navigation.replace('PersonalCenter');
+    }
+
+    toNews() {
+        this.props.navigation.replace('News');
     }
 
     toLoginPage() {
@@ -66,9 +71,10 @@ export default class MainPage extends Component {
                             <Icon name="camera"/>
                             <Text>相机</Text>
                         </Button>
-                        <Button vertical>
-                            <Icon active name="navigate"/>
-                            <Text>导航</Text>
+                        <Button vertical
+                                onPress={this.toNews}>
+                            <Icon name="radio"/>
+                            <Text>新闻</Text>
                         </Button>
                         <Button vertical active>
                             <Icon name="ios-person"/>
