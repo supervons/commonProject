@@ -1,6 +1,7 @@
 /** 基于fetch 封装的网络请求工具类 **/
 
 import {Component} from 'react'
+import {Toast} from 'native-base';
 
 /**
  * fetch 网络请求的header，可自定义header 内容
@@ -78,7 +79,7 @@ export default class HttpUtils extends Component {
             if (response.ok) {
                 return response.json()
             } else {
-                alert(JSON.stringify(response))
+                Toast.show({text:'服务器开小差了，请稍后再试...',buttonText:'好的',type:'warning'});
             }
         }).then(response => {
             // response.code：是与服务器端约定code：200表示请求成功，非200表示请求失败，message：请求失败内容
@@ -90,7 +91,7 @@ export default class HttpUtils extends Component {
                 return response
             }
         }).catch(error => {
-            alert(error)
+            Toast.show({text:'服务器开小差了，请稍后再试...',buttonText:'好的',type:'warning'});
         })
     }
 
@@ -109,7 +110,7 @@ export default class HttpUtils extends Component {
             if (response.ok) {
                 return response.json()
             } else {
-                alert('服务器繁忙，请稍后再试；\r\nCode:' + response.status)
+                Toast.show({text:'服务器开小差了，请稍后再试...\r\nCode:' + response.status,buttonText:'好的',type:'warning'});
             }
         }).then(response => {
             // response.code：是与服务器端约定code：200表示请求成功，非200表示请求失败，message：请求失败内容
@@ -120,7 +121,7 @@ export default class HttpUtils extends Component {
                 return response
             }
         }).catch(error => {
-            alert(error)
+            Toast.show({text:'服务器开小差了，请稍后再试...',buttonText:'好的',type:'warning'});
         })
     }
 }

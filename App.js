@@ -12,6 +12,7 @@ import PersonalCenter from './commonPage/personalCenter/personalCenter';
 import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
 import News from './commonPage/News/news';
+import ReduxTestIndex from './commonPage/Components/Redux/ReduxTestIndex';
 import { Root } from "native-base";
 const RootStack = createStackNavigator({
         Login: { //登录界面
@@ -31,6 +32,9 @@ const RootStack = createStackNavigator({
         },
         News:{
             screen:News
+        },
+        ReduxTest:{
+            screen:ReduxTestIndex
         }
     },
     {//定义配置
