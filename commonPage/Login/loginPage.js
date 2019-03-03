@@ -77,7 +77,7 @@ export default class LoginPage extends Component {
                 this.setState({
                     loginSpinner: false,
                 })
-                alert(response.msg);
+                Toast.show({text:response.msg,buttonText:'好的',type:'danger'});
             }
         }, (error) => {
             this.setState({
