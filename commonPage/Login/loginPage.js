@@ -6,7 +6,7 @@ import {Container, Header, Content, Form, Item, Input,Toast, Icon, Label, Button
 import CommonStyle from '../CommonProperties/CommonStyle';
 import OperationActions from '../Components/operationActions';
 import Spinner from '../Spinner/spinner';
-import {Modal, View} from 'react-native';
+import {Modal, View, NetInfo} from 'react-native';
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -16,6 +16,8 @@ export default class LoginPage extends Component {
             loginId: '',
             passWord: '',
             loginSpinner: false,
+            isConnected:false,
+            connectionInfo:'',
         });
     }
 
@@ -23,6 +25,24 @@ export default class LoginPage extends Component {
         headerTransparent: true,
         headerStyle: {},
     };
+
+    componentDidMount() {
+        //检测网络是否连接
+        NetInfo.isConnected.fetch().done((isConnected) => {
+            this.setState({isConnected:isConnected});
+        });
+
+        //监听网络变化事件
+        NetInfo.addEventListener('change', (networkType) => {
+            if(networkType.toString().toLowerCase() === 'none'){
+                Toast.show({text:'貌似没网哦，请检查当前网络状态',type:'warning'});
+            }else if(networkType.toString().toLowerCase() === 'wifi'){
+                Toast.show({text:'使用wifi访问... ',type:'warning'});
+            }else{
+                Toast.show({text:'使用流量中，请确保流量充足哦.',type:'danger'});
+            }
+        })
+    }
 
     loginAction() {
         const loginId = this.state.loginId;
@@ -41,6 +61,12 @@ export default class LoginPage extends Component {
             loginId: loginId,
             passWord: passWord
         }, (response) => {
+            if(response === undefined){
+                this.setState({
+                    loginSpinner: false,
+                })
+                return;
+            }
             if (response.code !== 'fail') {
                 this.setState({
                     loginSpinner: false,
@@ -54,6 +80,9 @@ export default class LoginPage extends Component {
                 alert(response.msg);
             }
         }, (error) => {
+            this.setState({
+                loginSpinner: false,
+            })
         });
     }
 

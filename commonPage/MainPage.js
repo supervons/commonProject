@@ -5,6 +5,7 @@
  */
 import React, {Component} from 'react';
 import {Container, Header, Content, Footer, FooterTab, Toast, Button, Icon, Text, Card, CardItem, Body} from 'native-base';
+import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 export default class MainPage extends Component {
 
     constructor(props) {
@@ -13,6 +14,7 @@ export default class MainPage extends Component {
         this.toMainPage = this.toMainPage.bind(this);
         this.toSpinnerShows = this.toSpinnerShows.bind(this);
         this.toNews = this.toNews.bind(this);
+        this.toReduxTest = this.toReduxTest.bind(this);
     }
 
     static navigationOptions = {
@@ -33,6 +35,10 @@ export default class MainPage extends Component {
 
     toSpinnerShows() {
         this.props.navigation.push('SpinnerShows');
+    }
+
+    toReduxTest() {
+        this.props.navigation.push('ReduxTest');
     }
 
     toNews() {
@@ -62,6 +68,11 @@ export default class MainPage extends Component {
                         </CardItem>
                     </Card>
                     <Button block primary onPress={this.toSpinnerShows}><Text> Loading加载动画展示>>> </Text></Button>
+
+                    <Card style={{marginTop: 30}}>
+                        <Button block primary onPress={this.toReduxTest}><Text> Redux 示例>>> </Text></Button>
+                    </Card>
+
                 </Content>
                 <Footer>
                     <FooterTab>

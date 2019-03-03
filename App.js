@@ -13,6 +13,7 @@ import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
 import News from './commonPage/News/news';
 import ReduxTestIndex from './commonPage/Components/Redux/ReduxTestIndex';
+import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import { Root } from "native-base";
 const RootStack = createStackNavigator({
         Login: { //登录界面
@@ -45,6 +46,15 @@ const RootStack = createStackNavigator({
             },
             headerMode: 'screen',
         },
+        transitionConfig:()=>({
+            /**
+             * 1、从右向左：  forHorizontal；
+             * 2、从下向上：  forVertical；
+             * 3、安卓那种的从下向上： forFadeFromBottomAndroid；
+             * 4、无动画：  forInitial。
+             */
+            screenInterpolator:StackViewStyleInterpolator.forHorizontal,
+        })
     },
 )
 
