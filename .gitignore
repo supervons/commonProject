@@ -1,0 +1,98 @@
+# ---> Common
+# Misc
+.DS_Store
+*.lock
+
+# ---> RN
+# node_modules
+dist/
+lib/
+node_modules/
+.idea
+npm-debug.log
+*.lock
+package-lock.json
+
+# ---> Android
+.gradle
+.idea
+android/app/build
+android/app/patchtool
+android/build
+android/android
+
+# ---> ios
+ios/bundle/assets/
+ios/bundle/index.jsbundle
+ios/bundle/index.jsbundle.meta
+
+# IntelliJ files
+*.iml
+# Local configuration file (sdk path, etc)
+android/local.properties
+# Generated files
+android/bin/
+android/gen/
+# Java class files
+*.class
+
+# Gradle files
+android/.gradle/
+
+# Built application files
+*.apk
+*.ap_
+
+# Files for the Dalvik VM
+*.dex
+
+#greenDao files
+android/app/src/main/java/com/aldb/android/data/greendao
+
+
+# ---> Objective-C
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
+ios/build/
+ios/DerivedData
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+.amaro
+ios/.idea/
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+#
+ios/Pods/
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Carthage/Checkouts
+
+ios/Carthage/Build
