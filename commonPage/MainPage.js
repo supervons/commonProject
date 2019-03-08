@@ -30,6 +30,7 @@ export default class MainPage extends Component {
         this.toReduxTest = this.toReduxTest.bind(this);
         this.toImageCropPicker = this.toImageCropPicker.bind(this);
         this.toNewFunction = this.toNewFunction.bind(this);
+        this.toAnimatable = this.toAnimatable.bind(this);
     }
 
     static navigationOptions = {
@@ -62,6 +63,10 @@ export default class MainPage extends Component {
 
     toImageCropPicker() {
         this.props.navigation.push('ImagePickerComponents');
+    }
+
+    toAnimatable() {
+        this.props.navigation.push('Animatable');
     }
 
     toNewFunction() {
@@ -101,11 +106,11 @@ export default class MainPage extends Component {
                         </CardItem>
                         <CardItem style={CommonStyles.centerStyle}>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toImageCropPicker}><Text>多图选择器</Text></Button>
-                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toAnimatable}><Text>Animatable动画</Text></Button>
                         </CardItem>
                         <CardItem style={CommonStyles.centerStyle}>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>日期选择器</Text></Button>
-                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>待定</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
                         </CardItem>
                     </Card>
 

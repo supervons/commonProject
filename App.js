@@ -14,6 +14,7 @@ import SpinnerShows from './commonPage/Spinner/spinnerShows';
 import News from './commonPage/News/news';
 import ReduxTestIndex from './commonPage/Components/Redux/ReduxTestIndex';
 import ImagePickerComponents from './commonPage/Components/ImagePicker/imagePickerComponents';
+import Animatable from './commonPage/Animatable/Animatable';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 
 import { Root } from "native-base";
@@ -41,6 +42,9 @@ const RootStack = createStackNavigator({
         },
         ImagePickerComponents:{// 图片选择器
             screen:ImagePickerComponents
+        },
+        Animatable:{// 图片选择器
+            screen:Animatable
         }
     },
     {//定义配置
