@@ -94,8 +94,8 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
      signingConfigs {
                 release {
                     storeFile file(MYAPP_RELEASE_STORE_FILE)
@@ -108,7 +108,7 @@ android {
     defaultConfig {
         applicationId "com.commonproject"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         ndk {
@@ -146,6 +146,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-syan-image-picker')
     compile project(':react-native-spinkit')
     compile project(':react-native-gesture-handler')
     compile project(':react-native-vector-icons')

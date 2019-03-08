@@ -16,13 +16,27 @@ const CommonStyle = StyleSheet.create({
     buttonStyle: {
         marginTop: 15,
         marginLeft: 20,
-        marginRight:20
+        marginRight: 20
     },
-    textStyle:{
+    textStyle: {
         marginTop: 15,
-        textAlign:'right',
+        textAlign: 'right',
         marginRight: 25,
-    }
+    },
+    //居中
+    centerStyle: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    //主页面功能展示button
+    mainPageButtonStyle: {
+        marginRight: 10,
+        width: 150,
+        justifyContent: 'center'
+    },
+
 });
 
 module.exports = CommonStyle;

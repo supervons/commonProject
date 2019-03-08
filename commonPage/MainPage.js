@@ -4,8 +4,21 @@
  * user main page
  */
 import React, {Component} from 'react';
-import {Container, Header, Content, Footer, FooterTab, Toast, Button, Icon, Text, Card, CardItem, Body} from 'native-base';
+import {
+    Container,
+    Content,
+    Footer,
+    FooterTab,
+    Toast,
+    Button,
+    Icon,
+    Text,
+    Card,
+    CardItem,
+    Body
+} from 'native-base';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
+import CommonStyles from './CommonProperties/CommonStyle';
 export default class MainPage extends Component {
 
     constructor(props) {
@@ -15,6 +28,8 @@ export default class MainPage extends Component {
         this.toSpinnerShows = this.toSpinnerShows.bind(this);
         this.toNews = this.toNews.bind(this);
         this.toReduxTest = this.toReduxTest.bind(this);
+        this.toImageCropPicker = this.toImageCropPicker.bind(this);
+        this.toNewFunction = this.toNewFunction.bind(this);
     }
 
     static navigationOptions = {
@@ -45,14 +60,19 @@ export default class MainPage extends Component {
         this.props.navigation.replace('News');
     }
 
+    toImageCropPicker() {
+        this.props.navigation.push('ImagePickerComponents');
+    }
+
+    toNewFunction() {
+        Toast.show({text:'新功能待开发',type:'success'});
+    }
+
     render() {
         return (
             <Container>
                 <Content>
                     <Card style={{marginTop: 50}}>
-                        <CardItem header>
-                            <Text>CommonProject</Text>
-                        </CardItem>
                         <CardItem>
                             <Body>
                             <Text>
@@ -66,11 +86,27 @@ export default class MainPage extends Component {
                         <CardItem footer>
                             <Text>GitHub:https://github.com/supervons/commonProject</Text>
                         </CardItem>
+                        <CardItem style={CommonStyles.centerStyle}>
+                            <Text>
+                                以下为功能模块
+                            </Text>
+                        </CardItem>
                     </Card>
-                    <Button block primary onPress={this.toSpinnerShows}><Text> Loading加载动画展示>>> </Text></Button>
 
                     <Card style={{marginTop: 30}}>
-                        <Button block primary onPress={this.toReduxTest}><Text> Redux 示例>>> </Text></Button>
+                        <CardItem style={CommonStyles.centerStyle}>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toSpinnerShows}><Text>Loading
+                                动画</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toReduxTest}><Text>Redux 示例</Text></Button>
+                        </CardItem>
+                        <CardItem style={CommonStyles.centerStyle}>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toImageCropPicker}><Text>多图选择器</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
+                        </CardItem>
+                        <CardItem style={CommonStyles.centerStyle}>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>日期选择器</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>待定</Text></Button>
+                        </CardItem>
                     </Card>
 
                 </Content>

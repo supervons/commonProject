@@ -33,10 +33,11 @@ export default class LoginPage extends Component {
         });
 
         //监听网络变化事件
-        NetInfo.addEventListener('change', (networkType) => {
-            if(networkType.toString().toLowerCase() === 'none'){
+        NetInfo.addEventListener('connectionChange', (networkType) => {
+            const netType = networkType.type;
+            if(netType === 'none'){
                 Toast.show({text:'貌似没网哦，请检查当前网络状态',type:'warning'});
-            }else if(networkType.toString().toLowerCase() === 'wifi'){
+            }else if(netType === 'wifi'){
                 Toast.show({text:'使用wifi访问... ',type:'warning'});
             }else{
                 Toast.show({text:'使用流量中，请确保流量充足哦.',type:'danger'});

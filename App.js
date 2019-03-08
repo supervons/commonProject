@@ -13,7 +13,9 @@ import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
 import News from './commonPage/News/news';
 import ReduxTestIndex from './commonPage/Components/Redux/ReduxTestIndex';
+import ImagePickerComponents from './commonPage/Components/ImagePicker/imagePickerComponents';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
+
 import { Root } from "native-base";
 const RootStack = createStackNavigator({
         Login: { //登录界面
@@ -36,6 +38,9 @@ const RootStack = createStackNavigator({
         },
         ReduxTest:{
             screen:ReduxTestIndex
+        },
+        ImagePickerComponents:{// 图片选择器
+            screen:ImagePickerComponents
         }
     },
     {//定义配置
