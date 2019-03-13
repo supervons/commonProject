@@ -28,11 +28,13 @@ const CommonStyle = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-around',
+        flexWrap:'wrap',
     },
     //主页面功能展示button
     mainPageButtonStyle: {
         marginRight: 10,
+        marginBottom:10,
         width: 150,
         justifyContent: 'center'
     },
