@@ -26,10 +26,7 @@ class MainPage extends Component {
 
     constructor(props) {
         super(props);
-        this.toPersonalCenter = this.toPersonalCenter.bind(this);
-        this.toMainPage = this.toMainPage.bind(this);
         this.toSpinnerShows = this.toSpinnerShows.bind(this);
-        this.toNews = this.toNews.bind(this);
         this.toReduxTest = this.toReduxTest.bind(this);
         this.toImageCropPicker = this.toImageCropPicker.bind(this);
         this.toNewFunction = this.toNewFunction.bind(this);
@@ -37,20 +34,12 @@ class MainPage extends Component {
     }
 
     static navigationOptions = {
-        title: '主页面',
+        title: '首页',
         gesturesEnabled: false,
         headerStyle: {                                 //导航栏样式设置
             backgroundColor: '#8bc9ff',
         },
     };
-
-    toMainPage() {
-        this.props.navigation.replace('MainPage');
-    }
-
-    toPersonalCenter() {
-        this.props.navigation.replace('PersonalCenter');
-    }
 
     toSpinnerShows() {
         this.props.navigation.push('SpinnerShows');
@@ -58,10 +47,6 @@ class MainPage extends Component {
 
     toReduxTest() {
         this.props.navigation.push('ReduxTest');
-    }
-
-    toNews() {
-        this.props.navigation.replace('News');
     }
 
     toImageCropPicker() {
@@ -116,29 +101,6 @@ class MainPage extends Component {
                     </Card>
 
                 </Content>
-                <Footer>
-                    <FooterTab>
-                        <Button vertical active
-                                onPress={this.toMainPage}>
-                            <Icon name="ios-apps"/>
-                            <Text>应用</Text>
-                        </Button>
-                        <Button vertical>
-                            <Icon name="camera"/>
-                            <Text>相机</Text>
-                        </Button>
-                        <Button vertical
-                                onPress={this.toNews}>
-                            <Icon name="radio"/>
-                            <Text>新闻</Text>
-                        </Button>
-                        <Button vertical
-                                onPress={this.toPersonalCenter}>
-                            <Icon name="person"/>
-                            <Text>我的</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
             </Container>
         );
     }

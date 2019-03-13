@@ -27,9 +27,6 @@ export default class News extends Component {
 
     constructor(props) {
         super(props);
-        this.toPersonalCenter = this.toPersonalCenter.bind(this);
-        this.toMainPage = this.toMainPage.bind(this);
-        this.toSpinnerShows = this.toSpinnerShows.bind(this);
         this.returnRender = this.returnRender.bind(this);
         this.state = ({
             newsList: [],
@@ -39,7 +36,7 @@ export default class News extends Component {
     }
 
     static navigationOptions = {
-        title: '新鲜事儿',
+        title: '新闻',
         gesturesEnabled: false,
         headerStyle: {                                 //导航栏样式设置
             backgroundColor: '#8bc9ff',
@@ -61,18 +58,6 @@ export default class News extends Component {
                 refreshing:false,
             });
         });
-    }
-
-    toMainPage() {
-        this.props.navigation.replace('MainPage');
-    }
-
-    toPersonalCenter() {
-        this.props.navigation.replace('PersonalCenter');
-    }
-
-    toSpinnerShows() {
-        this.props.navigation.push('SpinnerShows');
     }
 
     returnRender(item){
@@ -140,28 +125,6 @@ export default class News extends Component {
                         renderItem={({item}) => this.returnRender(item)}
                     />
                 </Content>
-                <Footer>
-                    <FooterTab>
-                        <Button vertical
-                                onPress={this.toMainPage}>
-                            <Icon name="apps"/>
-                            <Text>应用</Text>
-                        </Button>
-                        <Button vertical>
-                            <Icon name="camera"/>
-                            <Text>相机</Text>
-                        </Button>
-                        <Button vertical active>
-                            <Icon active name="radio"/>
-                            <Text>新闻</Text>
-                        </Button>
-                        <Button vertical
-                                onPress={this.toPersonalCenter}>
-                            <Icon name="person"/>
-                            <Text>我的</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
             </Container>
         );
     }

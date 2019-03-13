@@ -10,32 +10,16 @@ export default class MainPage extends Component {
 
     constructor(props) {
         super(props);
-        this.toPersonalCenter = this.toPersonalCenter.bind(this);
-        this.toMainPage = this.toMainPage.bind(this);
-        this.toLoginPage = this.toLoginPage.bind(this);
-        this.toNews = this.toNews.bind(this);
     }
 
     static navigationOptions = {
-        title: '个人中心',
+        title: '我的',
         gesturesEnabled: false,
         headerStyle: {                                 //导航栏样式设置
             backgroundColor: '#8bc9ff',
         },
         headerRight:<Icon name="ios-settings-outline"></Icon>,
     };
-
-    toMainPage() {
-        this.props.navigation.replace('MainPage');
-    }
-
-    toPersonalCenter() {
-        this.props.navigation.replace('PersonalCenter');
-    }
-
-    toNews() {
-        this.props.navigation.replace('News');
-    }
 
     toLoginPage() {
         Alert.alert('提示', '确认退出吗？',
@@ -60,28 +44,6 @@ export default class MainPage extends Component {
                         <Text>退出</Text>
                     </Button>
                 </Content>
-                <Footer>
-                    <FooterTab>
-                        <Button vertical
-                                onPress={this.toMainPage}>
-                            <Icon name="apps"/>
-                            <Text>应用</Text>
-                        </Button>
-                        <Button vertical>
-                            <Icon name="camera"/>
-                            <Text>相机</Text>
-                        </Button>
-                        <Button vertical
-                                onPress={this.toNews}>
-                            <Icon name="radio"/>
-                            <Text>新闻</Text>
-                        </Button>
-                        <Button vertical active>
-                            <Icon name="ios-person"/>
-                            <Text>我的</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
             </Container>
         );
     }
