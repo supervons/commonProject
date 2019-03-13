@@ -18,7 +18,7 @@ export const addText = (text) => {
 export const subtractText = (text) => {
     return {
         type: SUBTRACT_TEXT,
-        text
+        text,
     }
 };
 
@@ -26,6 +26,6 @@ export const subtractText = (text) => {
 export const resetText = (text) => {
     return {
         type: RESET_TEXT,
-        text
+        text,
     }
 };
