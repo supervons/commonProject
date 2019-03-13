@@ -19,7 +19,10 @@ import {
 } from 'native-base';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import CommonStyles from './CommonProperties/CommonStyle';
-export default class MainPage extends Component {
+import configureStore from './Components/Redux/store/store';
+import {connect} from 'react-redux';
+
+class MainPage extends Component {
 
     constructor(props) {
         super(props);
@@ -70,7 +73,7 @@ export default class MainPage extends Component {
     }
 
     toNewFunction() {
-        Toast.show({text:'新功能待开发',type:'success'});
+        Toast.show({text:'新功能开发中',type:'success'});
     }
 
     render() {
@@ -95,6 +98,9 @@ export default class MainPage extends Component {
                             <Text>
                                 以下为功能模块
                             </Text>
+                        </CardItem>
+                        <CardItem style={CommonStyles.centerStyle}>
+                            <Text style={{color:'red'}}>Redux 中 value = {this.props.text}</Text>
                         </CardItem>
                     </Card>
 
@@ -142,3 +148,10 @@ export default class MainPage extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        // 获取 state 变化
+        text:state.testReducer.text,
+    }
+};
+export default connect(mapStateToProps,null)(MainPage)

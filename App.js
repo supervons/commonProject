@@ -12,12 +12,15 @@ import PersonalCenter from './commonPage/personalCenter/personalCenter';
 import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
 import News from './commonPage/News/news';
-import ReduxTestIndex from './commonPage/Components/Redux/ReduxTestIndex';
+import ReduxTest from './commonPage/Components/Redux/ReduxTest';
 import ImagePickerComponents from './commonPage/Components/ImagePicker/imagePickerComponents';
 import Animatable from './commonPage/Animatable/Animatable';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
+import { Provider } from 'react-redux';
+import configureStore from './commonPage/Components/Redux/store/store'
 
 import { Root } from "native-base";
+const store = configureStore();
 const RootStack = createStackNavigator({
         Login: { //登录界面
             screen: LoginPage
@@ -38,7 +41,7 @@ const RootStack = createStackNavigator({
             screen:News
         },
         ReduxTest:{
-            screen:ReduxTestIndex
+            screen:ReduxTest
         },
         ImagePickerComponents:{// 图片选择器
             screen:ImagePickerComponents
@@ -71,9 +74,11 @@ export default class App extends Component {
 
     render() {
         return (
-            <Root>
-                <RootStack/>
-            </Root>
+            <Provider store={store}>
+                <Root>
+                    <RootStack/>
+                </Root>
+            </Provider>
         )
     }
 }

@@ -2,12 +2,15 @@
  * Created by supervons on 2019/3/3.
  * Redux Reducer设置
  */
-import { ADD_TEXT, addText, SUBTRACT_TEXT, resetText, RESET_TEXT  } from '../action/action';
+import { combineReducers  } from 'redux';
+import { ADD_TEXT, subtractText, SUBTRACT_TEXT, RESET_TEXT  } from '../action/action';
+import testReducer from './testReducer';
 
-const mainReducer = (state = addText(0), action) => {
+const mainReducer = (state = subtractText(0), action) => {
 
     const newState = state;
     const text = action.text;
+    console.log('newState' + JSON.stringify(newState) + ' -- ' + text);
     // 判断 action 类型
     switch (action.type) {
 
@@ -36,5 +39,5 @@ const mainReducer = (state = addText(0), action) => {
             }
     }
 };
-
-export default mainReducer;
+const reducer = combineReducers({mainReducer, testReducer});
+export default reducer;
