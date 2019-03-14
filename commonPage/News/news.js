@@ -43,7 +43,7 @@ export default class News extends Component {
         },
     }
 
-    componentWillMount(){
+    componentDidMount(){
         NewsAction.getNewsList({
         }, (response) => {
             console.log(JSON.stringify(response))

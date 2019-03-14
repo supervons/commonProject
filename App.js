@@ -84,7 +84,7 @@ const Tabs = createMaterialTopTabNavigator({
 });
 const RootStack = createStackNavigator({
         Login: { //登录界面
-            screen: Tabs
+            screen: LoginPage
         },
         MainPage: { //主界面
             screen: Tabs
