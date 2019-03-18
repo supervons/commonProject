@@ -19,6 +19,8 @@
 		<string>Roboto.ttf</string>
 		<string>rubicon-icon-font.ttf</string>
 	</array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>此 App 需要您的同意才能读取媒体资料库</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
