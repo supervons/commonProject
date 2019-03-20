@@ -30,6 +30,7 @@ class MainPage extends Component {
         this.toReduxTest = this.toReduxTest.bind(this);
         this.toImageCropPicker = this.toImageCropPicker.bind(this);
         this.toNewFunction = this.toNewFunction.bind(this);
+        this.toTouchView = this.toTouchView.bind(this);
         this.toAnimatable = this.toAnimatable.bind(this);
     }
 
@@ -55,6 +56,10 @@ class MainPage extends Component {
 
     toAnimatable() {
         this.props.navigation.push('Animatable');
+    }
+
+    toTouchView() {
+        this.props.navigation.push('TouchIdView');
     }
 
     toNewFunction() {
@@ -95,6 +100,7 @@ class MainPage extends Component {
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toImageCropPicker}><Text>多图选择器</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toAnimatable}><Text>Animatable动画</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toReduxTest}><Text>Redux 示例</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toTouchView}><Text>指纹识别</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>日期选择器</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
                         </CardItem>
