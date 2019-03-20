@@ -342,6 +342,20 @@
 			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
 			remoteInfo = "jschelpers-tvOS";
 		};
+		3F36EF8E2242482B0026A6CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B18131C26C64A0387D9E414 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
+			remoteInfo = "RNGestureHandler-tvOS";
+		};
+		3F36EF952242482B0026A6CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 926124A9F30D414DA9019371 /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
+			remoteInfo = "RNVectorIcons-tvOS";
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -502,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				0042806F21CA9A73005B8264 /* libRNVectorIcons.a */,
+				3F36EF962242482B0026A6CB /* libRNVectorIcons-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -510,6 +525,7 @@
 			isa = PBXGroup;
 			children = (
 				004280CC21CB6D8C005B8264 /* libRNGestureHandler.a */,
+				3F36EF8F2242482B0026A6CB /* libRNGestureHandler-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -686,6 +702,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3F36EF66224248290026A6CB /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E6ECF3B535434F09B781DA95 /* libRNVectorIcons.a */,
+				4FA5262A2D25430E83C120FB /* libRNGestureHandler.a */,
+				D5F5D34EB3F14C38B96F417F /* libRNSyanImagePicker.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +772,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				10A55C4B17284949AD59440F /* Resources */,
+				3F36EF66224248290026A6CB /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1216,6 +1243,20 @@
 			fileType = archive.ar;
 			path = libjschelpers.a;
 			remoteRef = 3DAD3EAE1DF850E9000B6D8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3F36EF8F2242482B0026A6CB /* libRNGestureHandler-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNGestureHandler-tvOS.a";
+			remoteRef = 3F36EF8E2242482B0026A6CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3F36EF962242482B0026A6CB /* libRNVectorIcons-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNVectorIcons-tvOS.a";
+			remoteRef = 3F36EF952242482B0026A6CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
