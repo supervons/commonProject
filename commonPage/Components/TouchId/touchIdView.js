@@ -46,7 +46,7 @@ export default class TouchIdView extends Component {
                 // Success code
             })
             .catch(error => {
-                Toast.show({text: '认证失败 Authentication Failed', type: 'success'});
+                Toast.show({text: '认证失败 Authentication Failed', type: 'danger'});
                 // Failure code
             });
     }
