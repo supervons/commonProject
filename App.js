@@ -14,6 +14,7 @@ import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
 import News from './commonPage/News/news';
 import ReduxTest from './commonPage/Components/Redux/ReduxTest';
+import TouchIdView from './commonPage/Components/TouchId/touchIdView';
 import ImagePickerComponents from './commonPage/Components/ImagePicker/imagePickerComponents';
 import Animatable from './commonPage/Animatable/Animatable';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
@@ -107,8 +108,11 @@ const RootStack = createStackNavigator({
         ImagePickerComponents: {// 图片选择器
             screen: ImagePickerComponents
         },
-        Animatable: {// 图片选择器
+        Animatable: {// 动画页面
             screen: Animatable
+        },
+        TouchIdView:{// 指纹测试页面
+            screen:TouchIdView
         }
     },
     {//定义配置
