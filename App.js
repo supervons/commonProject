@@ -7,8 +7,9 @@
 import React, {Component} from 'react';
 import  {Image} from 'react-native';
 import {createStackNavigator, createMaterialTopTabNavigator} from "react-navigation";
-import LoginPage from './commonPage/Login/loginPage'
+import LoginPage from './commonPage/Login/loginPage';
 import MainPage from './commonPage/MainPage';
+import CodePushScreen from "./commonPage/Components/CodePush/CodePushScreen";
 import PersonalCenter from './commonPage/personalCenter/personalCenter';
 import Register from './commonPage/Registered/register';
 import SpinnerShows from './commonPage/Spinner/spinnerShows';
@@ -22,6 +23,7 @@ import {Provider} from 'react-redux';
 import configureStore from './commonPage/Components/Redux/store/store'
 
 import {Root, Icon} from "native-base";
+
 const store = configureStore();
 //底部 tab 导航
 const Tabs = createMaterialTopTabNavigator({
@@ -113,6 +115,9 @@ const RootStack = createStackNavigator({
         },
         TouchIdView:{// 指纹测试页面
             screen:TouchIdView
+        },
+        CodePushScreen: { // 热更新展示页
+            screen:CodePushScreen
         }
     },
     {//定义配置

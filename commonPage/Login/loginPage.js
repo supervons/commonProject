@@ -98,6 +98,10 @@ export default class LoginPage extends Component {
         });
     }
 
+    codePushAction = () => {
+      this.props.navigation.navigate('CodePushScreen');
+    };
+
     toRegisterPage() {
         this.props.navigation.navigate('Register');
     }
@@ -138,6 +142,11 @@ export default class LoginPage extends Component {
                               onPress={this.toRegisterPage}>
                             <Text >免费注册></Text>
                         </Text>
+
+                        <Button block
+                                style={CommonStyle.codePushBtnStyle}
+                                onPress={this.codePushAction.bind(this)}><Text>热更新功能</Text></Button>
+
                     </Form>
                 </Content>
             </Container>

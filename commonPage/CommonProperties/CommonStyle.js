@@ -38,6 +38,13 @@ const CommonStyle = StyleSheet.create({
         width: 150,
         justifyContent: 'center'
     },
+    /*热更新功能按钮样式*/
+    codePushBtnStyle: {
+        marginTop:40,
+        marginLeft:10,
+        marginRight:10,
+        justifyContent:'center',
+    },
 
 });
 
