@@ -146,6 +146,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-orientation')
     compile project(':react-native-touch-id')
     compile project(':react-native-syan-image-picker')
     compile project(':react-native-spinkit')
