@@ -20,6 +20,8 @@ import {
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import CommonStyles from './CommonProperties/CommonStyle';
 import configureStore from './Components/Redux/store/store';
+import Orientation from 'react-native-orientation';
+
 import {connect} from 'react-redux';
 
 class MainPage extends Component {
@@ -32,6 +34,10 @@ class MainPage extends Component {
         this.toNewFunction = this.toNewFunction.bind(this);
         this.toTouchView = this.toTouchView.bind(this);
         this.toAnimatable = this.toAnimatable.bind(this);
+        this.toChangeOrientation = this.toChangeOrientation.bind(this);
+        this.state=({
+            orientation:'PORTRAIT',
+        });
     }
 
     static navigationOptions = {
@@ -41,6 +47,10 @@ class MainPage extends Component {
             backgroundColor: '#8bc9ff',
         },
     };
+
+    componentDidMount() {
+        Orientation.addOrientationListener((orientation) =>this.setState({orientation:orientation}));
+    }
 
     toSpinnerShows() {
         this.props.navigation.push('SpinnerShows');
@@ -60,6 +70,19 @@ class MainPage extends Component {
 
     toTouchView() {
         this.props.navigation.push('TouchIdView');
+    }
+
+    toChangeOrientation() {
+        const initial = this.state.orientation;
+        if (initial === 'PORTRAIT') {
+            //竖屏转横屏
+            Orientation.lockToLandscape();
+            // do something
+        } else {
+            //横屏转竖屏
+            Orientation.lockToPortrait();
+            // do something else
+        }
     }
 
     toNewFunction() {
@@ -101,6 +124,7 @@ class MainPage extends Component {
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toAnimatable}><Text>Animatable动画</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toReduxTest}><Text>Redux 示例</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toTouchView}><Text>指纹识别</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toChangeOrientation}><Text>横竖屏切换</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>日期选择器</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
                         </CardItem>
