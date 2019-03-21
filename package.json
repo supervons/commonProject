@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "native-base": "^2.6.1",
+    "rc-form": "^2.4.3",
     "react": "^16.2.0",
     "react-native": "^0.53.0",
     "react-native-animatable": "^1.3.0",
