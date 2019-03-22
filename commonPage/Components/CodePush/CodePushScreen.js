@@ -23,6 +23,14 @@ class CodePushScreen extends Component {
         this.state = { restartAllowed: true };
     }
 
+    static navigationOptions = {
+        title: '版本更新',
+        gesturesEnabled: true,
+        headerStyle: {                                 //导航栏样式设置
+            backgroundColor: '#8bc9ff',
+        },
+    };
+
     codePushStatusDidChange(syncStatus) {
         switch(syncStatus) {
             case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
