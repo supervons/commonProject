@@ -19,9 +19,9 @@ const CommonStyle = StyleSheet.create({
         marginRight: 20
     },
     textStyle: {
-        marginTop: 15,
-        textAlign: 'right',
-        marginRight: 25,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        margin:15,
     },
     //居中
     centerStyle: {

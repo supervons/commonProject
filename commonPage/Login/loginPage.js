@@ -13,6 +13,7 @@ export default class LoginPage extends Component {
         super(props);
         this.loginAction = this.loginAction.bind(this);
         this.toRegisterPage = this.toRegisterPage.bind(this);
+        this.codePushAction = this.codePushAction.bind(this);
         this.state = ({
             loginId: '',
             passWord: '',
@@ -98,7 +99,7 @@ export default class LoginPage extends Component {
         });
     }
 
-    codePushAction = () => {
+    codePushAction() {
       this.props.navigation.navigate('CodePushScreen');
     };
 
@@ -138,14 +139,14 @@ export default class LoginPage extends Component {
                                     style={CommonStyle.buttonStyle}
                                     onPress={this.loginAction}><Text>登录</Text></Button>
 
-                        <Text style={CommonStyle.textStyle}
-                              onPress={this.toRegisterPage}>
-                            <Text >免费注册></Text>
-                        </Text>
-
-                        <Button block
-                                style={CommonStyle.codePushBtnStyle}
-                                onPress={this.codePushAction.bind(this)}><Text>热更新功能</Text></Button>
+                        <View style={CommonStyle.textStyle}>
+                            <View>
+                                <Text onPress={this.codePushAction}>版本热更新</Text>
+                            </View>
+                            <View>
+                                <Text onPress={this.toRegisterPage}>免费注册></Text>
+                            </View>
+                        </View>
 
                     </Form>
                 </Content>
