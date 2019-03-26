@@ -1,3 +1,4 @@
 <resources>
+	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">y</string>
     <string name="app_name">commonProject</string>
 </resources>

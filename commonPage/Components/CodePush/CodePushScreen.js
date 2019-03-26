@@ -12,6 +12,7 @@ import {
     Text,
     TouchableOpacity,
     View,
+    ScrollView,
 } from "react-native";
 
 import CodePush from "react-native-code-push";
@@ -21,6 +22,14 @@ class CodePushScreen extends Component {
         super();
         this.state = { restartAllowed: true };
     }
+
+    static navigationOptions = {
+        title: '版本更新',
+        gesturesEnabled: true,
+        headerStyle: {                                 //导航栏样式设置
+            backgroundColor: '#8bc9ff',
+        },
+    };
 
     codePushStatusDidChange(syncStatus) {
         switch(syncStatus) {
@@ -100,6 +109,7 @@ class CodePushScreen extends Component {
         }
 
         return (
+            <ScrollView>
             <View style={styles.container}>
                 <Text style={styles.welcome}>
                     Welcome to CodePush!
@@ -120,6 +130,7 @@ class CodePushScreen extends Component {
                 </TouchableOpacity>
                 <Text style={styles.messages}>{this.state.syncMessage || ""}</Text>
             </View>
+                </ScrollView>
         );
     }
 }
@@ -129,7 +140,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         backgroundColor: "#F5FCFF",
-        paddingTop: 50
+        paddingTop: 50,
+        height:Dimensions.get("window").height -50
     },
     image: {
         margin: 30,

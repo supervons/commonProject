@@ -22,6 +22,9 @@ Of course, you can also develop based on this project. It would be better if you
 | [带图片列表](#4card-image-列表组件展示newsjs)  | 展示带图片、文字或者小标题的列表 | 主页新闻列表     |
 | [网络检测](#5netinfo-检测用户网络状态loginpagejs)  | 实时获取用户网络，提醒注意流量等 | 登录页面或网络状态更改时     |
 | [多图选择器](#6imagepicker-多图选择器loginpagejs)  | 良好体验的图片选择器 | 登录后主页进入     |
+| [热更新](#7code-push-热更新codepushscreenjs)  | 更新无需重新下载，更快速迭代版本 | 登录页左下角进入     |
+| [指纹识别](#8touch-id-指纹识别touchidviewjs)  | 指纹识别 & iOS 高版本有 FaceId | 登录后主页选择指纹识别模块     |
+| [横竖屏切换](#9orientation-横竖屏切换mainpagejs)  | 横竖屏切换工具 | 登录后主页选择横竖屏切换模块     |
 
 ## 1.动画组件：react-native-animatable 
     文件位置：commonPage/Animatable/Animatable.js
@@ -51,6 +54,24 @@ Of course, you can also develop based on this project. It would be better if you
     作用：选择多张图片，可进行编辑（仅选单张可以），浏览。
 ![多图选择器展示](commonPage/image/exhibitionPicture/imagePicker.gif)
 
+## 7.Code-Push 热更新:CodePushScreen.js
+    使用组件：react-native-code-push
+    文件位置：Components/CodePush/CodePushScreen.js
+    作用：iOS，安卓热更新部署。
+![热更新展示](commonPage/image/exhibitionPicture/code-push.gif)
+
+## 8.Touch-id 指纹识别:TouchIdView.js
+    使用组件：react-native-touch-id
+    文件位置：Components/TouchId/TouchIdView.js
+    作用：安卓，iOS指纹识别，iOS 高版本有 Face Id。
+![指纹识别展示](commonPage/image/exhibitionPicture/touchId.gif)
+
+## 9.Orientation 横竖屏切换:MainPage.js
+    使用组件：react-native-orientation
+    文件位置：Components/MainPage.js
+    作用：切换屏幕方向。
+![横竖屏](commonPage/image/exhibitionPicture/orientation.gif)
+
 # Currently included components:
 
 | Component Name | Use | Entrance |
@@ -74,14 +95,29 @@ Of course, you can also develop based on this project. It would be better if you
     Role: When used in a network request, display loading animation and enhance interaction.
 
 ## 4.Card Image List component display: News.js
-    File location: News/news.js
+    File location: News/news.js
     Role: used to display a list of information with pictures, avatars.
 
 ## 5.NetInfo Detecting User Network Status: LoginPage.js
-    File location: Login/loginPage.js
+    File location: Login/loginPage.js
     Function: Detect the user's network changes and make corresponding prompts.
 
 ## 6.ImagePicker Multi-Picture Selector: LoginPage.js
-    Use component: react-native-syan-image-picker
-    File location: Components/ImagePicker/imagePickerComponents.js
-    Function: Select multiple pictures, you can edit them (only one can be selected), browse.
+    Use component: react-native-syan-image-picker
+    File location: Components/ImagePicker/imagePickerComponents.js
+    Function: Select multiple pictures, you can edit them (only one can be selected), browse.
+    
+## 7.Code-Push Hot Update: CodePushScreen.js
+    Use component: react-native-code-push
+    File location: Components/CodePush/CodePushScreen.js
+    Role: iOS, Android hot update deployment.
+
+## 8.Touch-id Fingerprint Recognition: TouchIdView.js
+    Use component: react-native-touch-id
+    File location: Components/TouchId/TouchIdView.js
+    Role: Android, iOS fingerprint recognition, iOS high version has Face Id.
+
+## 9.Orientation Horizontal and vertical screen switching: MainPage.js
+    Use components: react-native-orientation
+    File location: Components/MainPage.js
+    Function: Switch the screen orientation.
