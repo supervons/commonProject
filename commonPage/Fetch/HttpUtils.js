@@ -2,14 +2,41 @@
 
 import {Component} from 'react'
 import {Toast} from 'native-base';
+import Realm from 'realm';
 
 /**
  * fetch 网络请求的header，可自定义header 内容
+ * 创建存储用户本地数据表，包含 jwtToken 用于请求校验
  * @type {{Accept: string, Content-Type: string, accessToken: *}}
  */
-let header = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
+const UserDataSchema = {
+    name: 'UserLocalData',
+    primaryKey:'id',
+    properties: {
+        id:'int',
+        userId:'string',
+        loginId:'string',
+        passWord:'string',
+        userAddress:'string',
+        userCellPhone:'string',
+        name: 'string',
+        userSex:'string',
+        jwtToken: 'string'
+    }
+};
+let realm = new Realm({schema: [UserDataSchema]});
+
+//设置请求类型以及 jwtToken 参数
+const getHeader = ()=>{
+    let userLocalData = realm.objects('UserLocalData');
+    let jwtToken = Object.keys(userLocalData).length == 0? "" : userLocalData[0].jwtToken;
+    let header = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'jwtToken':jwtToken,
+
+    }
+    return header;
 }
 
 /**
@@ -74,7 +101,9 @@ export default class HttpUtils extends Component {
     static getRequest = (url, params = {}) => {
         return timeoutFetch(fetch(handleUrl(url)(params), {
             method: 'GET',
-            headers: header
+            headers: {
+                ...getHeader(),
+            },
         })).then(response => {
             if (response.ok) {
                 return response.json()
@@ -104,7 +133,9 @@ export default class HttpUtils extends Component {
     static postRequest = (url, params = {}) => {
         return timeoutFetch(fetch(url, {
             method: 'POST',
-            headers: header,
+            headers: {
+                ...getHeader(),
+            },
             body: JSON.stringify(params)
         })).then(response => {
             if (response.ok) {

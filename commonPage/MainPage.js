@@ -7,19 +7,17 @@ import React, {Component} from 'react';
 import {
     Container,
     Content,
-    Footer,
-    FooterTab,
     Toast,
     Button,
-    Icon,
     Text,
     Card,
     CardItem,
     Body
 } from 'native-base';
+
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import CommonStyles from './CommonProperties/CommonStyle';
-import configureStore from './Components/Redux/store/store';
+import Realm from 'realm';
 import Orientation from 'react-native-orientation';
 
 import {connect} from 'react-redux';
@@ -35,6 +33,7 @@ class MainPage extends Component {
         this.toTouchView = this.toTouchView.bind(this);
         this.toAnimatable = this.toAnimatable.bind(this);
         this.toChangeOrientation = this.toChangeOrientation.bind(this);
+        this.showLocalUserData = this.showLocalUserData.bind(this);
         this.state=({
             orientation:'PORTRAIT',
         });
@@ -85,6 +84,13 @@ class MainPage extends Component {
         }
     }
 
+    showLocalUserData(){
+        let realm = new Realm();
+        let userLocalData = realm.objects('UserLocalData');
+        let userData = Object.keys(userLocalData).length == 0? "" : userLocalData;
+        Toast.show({text:JSON.stringify(userData),type:'success'});
+    }
+
     toNewFunction() {
         Toast.show({text:'新功能开发中',type:'success'});
     }
@@ -125,6 +131,7 @@ class MainPage extends Component {
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toReduxTest}><Text>Redux 示例</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toTouchView}><Text>指纹识别</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toChangeOrientation}><Text>横竖屏切换</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.showLocalUserData}><Text>缓存用户数据</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>日期选择器</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
                         </CardItem>
