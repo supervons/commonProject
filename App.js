@@ -18,6 +18,7 @@ import ReduxTest from './commonPage/Components/Redux/ReduxTest';
 import TouchIdView from './commonPage/Components/TouchId/touchIdView';
 import ImagePickerComponents from './commonPage/Components/ImagePicker/imagePickerComponents';
 import Animatable from './commonPage/Animatable/Animatable';
+import EchartsView from './src/components/sEchartsTest/EchartsView';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import {Provider} from 'react-redux';
 import configureStore from './commonPage/Components/Redux/store/store'
@@ -118,6 +119,9 @@ const RootStack = createStackNavigator({
         },
         CodePushScreen: { // 热更新展示页
             screen:CodePushScreen
+        },
+        EchartsView: { // 图表展示页
+            screen:EchartsView
         }
     },
     {//定义配置

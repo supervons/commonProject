@@ -34,6 +34,7 @@ class MainPage extends Component {
         this.toAnimatable = this.toAnimatable.bind(this);
         this.toChangeOrientation = this.toChangeOrientation.bind(this);
         this.showLocalUserData = this.showLocalUserData.bind(this);
+        this.toEchartsView = this.toEchartsView.bind(this);
         this.state=({
             orientation:'PORTRAIT',
         });
@@ -69,6 +70,10 @@ class MainPage extends Component {
 
     toTouchView() {
         this.props.navigation.push('TouchIdView');
+    }
+
+    toEchartsView() {
+        this.props.navigation.push('EchartsView');
     }
 
     toChangeOrientation() {
@@ -132,6 +137,7 @@ class MainPage extends Component {
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toTouchView}><Text>指纹识别</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toChangeOrientation}><Text>横竖屏切换</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.showLocalUserData}><Text>缓存用户数据</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toEchartsView}><Text>图表Echarts</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>日期选择器</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
                         </CardItem>

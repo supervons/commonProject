@@ -30,6 +30,7 @@ const CommonStyle = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         flexWrap:'wrap',
+        marginTop:20,
     },
     //主页面功能展示button
     mainPageButtonStyle: {
