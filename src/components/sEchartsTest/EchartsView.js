@@ -24,6 +24,14 @@ export default class EchartsView extends Component {
         });
     }
 
+    static navigationOptions = {
+        title: '图表',
+        gesturesEnabled: false,
+        headerStyle: {                                 //导航栏样式设置
+            backgroundColor: '#8bc9ff',
+        },
+    };
+
     render() {
         return (
             <Content>
