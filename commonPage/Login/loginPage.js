@@ -2,7 +2,7 @@
  * Created by supervons on 2018/12/20.
  */
 import React, {Component} from 'react';
-import {Container, Content, Form, Item, Input, Toast, Label, Button, Text,} from 'native-base';
+import {Container, Content, Form, Item, Input, Toast, Label, Button, Text, Thumbnail} from 'native-base';
 import CommonStyle from '../CommonProperties/CommonStyle';
 import OperationActions from '../Components/operationActions';
 import Spinner from '../Spinner/spinner';
@@ -140,6 +140,9 @@ export default class LoginPage extends Component {
             <Container>
                 <Content>
                     <Form style={{marginTop: 220}}>
+                        <View style={CommonStyle.centerViewStyle}>
+                            <Thumbnail large source={require('../image/loginPage/login2.jpeg')} />
+                        </View>
                         <Animatable.View ref={this.handleUserName}>
                             <Item floatingLabel>
                                 <Label>用户名/Username</Label>
