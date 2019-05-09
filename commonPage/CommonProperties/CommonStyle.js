@@ -32,6 +32,13 @@ const CommonStyle = StyleSheet.create({
         flexWrap:'wrap',
         marginTop:20,
     },
+    // 内容居中 View
+    centerViewStyle: {
+        flex: 1,
+        flexDirection:'row',
+        justifyContent:'center'
+
+    },
     //主页面功能展示button
     mainPageButtonStyle: {
         marginRight: 10,

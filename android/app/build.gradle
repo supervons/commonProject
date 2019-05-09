@@ -147,6 +147,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-picker')
     compile project(':realm')
     compile project(':react-native-code-push')
     compile project(':react-native-orientation')

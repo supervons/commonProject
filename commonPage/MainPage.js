@@ -35,6 +35,7 @@ class MainPage extends Component {
         this.toChangeOrientation = this.toChangeOrientation.bind(this);
         this.showLocalUserData = this.showLocalUserData.bind(this);
         this.toEchartsView = this.toEchartsView.bind(this);
+        this.toCalendarsDemo = this.toCalendarsDemo.bind(this);
         this.state=({
             orientation:'PORTRAIT',
         });
@@ -89,6 +90,10 @@ class MainPage extends Component {
         }
     }
 
+    toCalendarsDemo() {
+        this.props.navigation.push('CalendarsDemo');
+    }
+
     showLocalUserData(){
         let realm = new Realm();
         let userLocalData = realm.objects('UserLocalData');
@@ -138,7 +143,7 @@ class MainPage extends Component {
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toChangeOrientation}><Text>横竖屏切换</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.showLocalUserData}><Text>缓存用户数据</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toEchartsView}><Text>图表Echarts</Text></Button>
-                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>日期选择器</Text></Button>
+                            <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toCalendarsDemo}><Text>日期选择器</Text></Button>
                             <Button style={CommonStyles.mainPageButtonStyle} primary onPress={this.toNewFunction}><Text>地址选择器</Text></Button>
                         </CardItem>
                     </Card>

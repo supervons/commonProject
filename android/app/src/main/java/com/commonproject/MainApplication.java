@@ -3,6 +3,7 @@ package com.commonproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.beefe.picker.PickerViewPackage;
 import io.realm.react.RealmReactPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.github.yamill.orientation.OrientationPackage;
@@ -39,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerViewPackage(),
             new RealmReactPackage(),
             //第一个参数是刚刚申请的key（可以根据环境配置）
             //第三个参数是服务器的URL

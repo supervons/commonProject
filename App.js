@@ -19,6 +19,7 @@ import TouchIdView from './commonPage/Components/TouchId/touchIdView';
 import ImagePickerComponents from './commonPage/Components/ImagePicker/imagePickerComponents';
 import Animatable from './commonPage/Animatable/Animatable';
 import EchartsView from './src/components/sEchartsTest/EchartsView';
+import CalendarsDemo from './src/components/calendars/CalendarsDemo';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import {Provider} from 'react-redux';
 import configureStore from './commonPage/Components/Redux/store/store'
@@ -122,6 +123,9 @@ const RootStack = createStackNavigator({
         },
         EchartsView: { // 图表展示页
             screen:EchartsView
+        },
+        CalendarsDemo: { // 图表展示页
+            screen:CalendarsDemo
         }
     },
     {//定义配置
