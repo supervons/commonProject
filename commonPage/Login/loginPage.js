@@ -9,6 +9,7 @@ import Spinner from '../Spinner/spinner';
 import {Modal, View, NetInfo} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Realm from 'realm';
+import JPushModule from 'jpush-react-native';
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -39,6 +40,13 @@ export default class LoginPage extends Component {
     rubberBandPassWord = () => this.passWord.rubberBand(800).then(endState => console.log(endState.finished ? 'wobble finished' : 'wobble cancelled'));
 
     componentDidMount() {
+        JPushModule.initPush();
+        JPushModule.getRegistrationID(registrationId => {})
+        JPushModule.addReceiveCustomMsgListener((message) => {
+        });
+        JPushModule.addReceiveNotificationListener((message) => {
+            console.log("receive notification: " + message);
+        })
         //检测网络是否连接
         NetInfo.isConnected.fetch().done((isConnected) => {
             this.setState({isConnected: isConnected});

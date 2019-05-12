@@ -18,18 +18,25 @@ import com.facebook.soloader.SoLoader;
 import com.react.rnspinkit.RNSpinkitPackage;
 import android.content.Intent;
 import android.content.res.Configuration;
+import cn.jpush.reactnativejpush.JPushPackage;   // <--   导入 JPushPackage
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
 
+  // 设置为 true 将不会弹出 toast
+  private boolean SHUTDOWN_TOAST = false;
+
+  // 设置为 true 将不会打印 log
+  private boolean SHUTDOWN_LOG = false;
+
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
-        @Override
-        protected String getJSBundleFile() {
-        return CodePush.getJSBundleFile();
-        }
+    @Override
+    protected String getJSBundleFile() {
+      return CodePush.getJSBundleFile();
+    }
     
     @Override
     public boolean getUseDeveloperSupport() {
@@ -50,7 +57,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNSyanImagePickerPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
-            new RNSpinkitPackage()
+            new RNSpinkitPackage(),
+            new JPushPackage(SHUTDOWN_TOAST, SHUTDOWN_LOG)   //  <-- 添加 JPushPackage
       );
     }
 
