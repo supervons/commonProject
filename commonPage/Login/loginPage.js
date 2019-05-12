@@ -6,7 +6,7 @@ import {Container, Content, Form, Item, Input, Toast, Label, Button, Text, Thumb
 import CommonStyle from '../CommonProperties/CommonStyle';
 import OperationActions from '../Components/operationActions';
 import Spinner from '../Spinner/spinner';
-import {Modal, View, NetInfo} from 'react-native';
+import {Modal, View, NetInfo, Platform} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Realm from 'realm';
 import JPushModule from 'jpush-react-native';
@@ -40,13 +40,16 @@ export default class LoginPage extends Component {
     rubberBandPassWord = () => this.passWord.rubberBand(800).then(endState => console.log(endState.finished ? 'wobble finished' : 'wobble cancelled'));
 
     componentDidMount() {
-        JPushModule.initPush();
-        JPushModule.getRegistrationID(registrationId => {})
-        JPushModule.addReceiveCustomMsgListener((message) => {
-        });
-        JPushModule.addReceiveNotificationListener((message) => {
-            console.log("receive notification: " + message);
-        })
+        if (Platform.OS !== 'ios') {
+            JPushModule.initPush();
+            JPushModule.getRegistrationID(registrationId => {
+            })
+            JPushModule.addReceiveCustomMsgListener((message) => {
+            });
+            JPushModule.addReceiveNotificationListener((message) => {
+                console.log("receive notification: " + message);
+            })
+        }
         //检测网络是否连接
         NetInfo.isConnected.fetch().done((isConnected) => {
             this.setState({isConnected: isConnected});
@@ -149,11 +152,11 @@ export default class LoginPage extends Component {
                 <Content>
                     <Form style={{marginTop: 220}}>
                         <View style={CommonStyle.centerViewStyle}>
-                            <Thumbnail large source={require('../image/loginPage/login2.jpeg')} />
+                            <Thumbnail large source={require('../image/loginPage/login2.jpeg')}/>
                         </View>
                         <Animatable.View ref={this.handleUserName}>
                             <Item floatingLabel>
-                                <Label style={{marginTop:5}}>用户名/Username</Label>
+                                <Label style={{marginTop: 5}}>用户名/Username</Label>
                                 <Input onChangeText={(text) => this.setState({loginId: text})}
                                        autoCorrect={false}
                                        autoCapitalize="none"
@@ -162,7 +165,7 @@ export default class LoginPage extends Component {
                         </Animatable.View>
                         <Animatable.View ref={this.handlePassWord}>
                             <Item floatingLabel>
-                                <Label style={{marginTop:5}}>密码/Password</Label>
+                                <Label style={{marginTop: 5}}>密码/Password</Label>
 
                                 <Input secureTextEntry={true}
                                        onChangeText={(text) => this.setState({passWord: text})}
