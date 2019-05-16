@@ -152,6 +152,7 @@ android {
 }
 
 dependencies {
+    compile project(':RCTWeChat')
     compile project(':react-native-picker')
     compile project(':realm')
     compile project(':react-native-code-push')

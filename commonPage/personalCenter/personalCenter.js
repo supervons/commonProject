@@ -4,13 +4,19 @@
  * user main page
  */
 import React, {Component} from 'react';
-import {TouchableNativeFeedback,Alert} from 'react-native';
-import {Container, Header, Content,Badge, Footer, FooterTab, Button, Icon, Text} from 'native-base';
+import {TouchableNativeFeedback, Alert} from 'react-native';
+import {Container, Header, Content, Badge, Footer, FooterTab, Button, Icon, Text} from 'native-base';
+import * as WeChat from 'react-native-wechat';
 export default class MainPage extends Component {
 
     constructor(props) {
         super(props);
         this.toLoginPage = this.toLoginPage.bind(this);
+        this.toShareWeixin = this.toShareWeixin.bind(this);
+    }
+
+    componentDidMount() {
+        WeChat.registerApp('')
     }
 
     static navigationOptions = {
@@ -19,7 +25,7 @@ export default class MainPage extends Component {
         headerStyle: {                                 //导航栏样式设置
             backgroundColor: '#8bc9ff',
         },
-        headerRight:<Icon name="ios-settings-outline"></Icon>,
+        headerRight: <Icon name="ios-settings-outline"></Icon>,
     };
 
     toLoginPage() {
@@ -37,12 +43,35 @@ export default class MainPage extends Component {
         );
     }
 
+    toShareWeixin() {
+        WeChat.isWXAppInstalled()
+            .then((isInstalled) => {
+                if (isInstalled) {
+                    WeChat.shareToSession({
+                        title: '快来看看啊',
+                        description: '这是一个测试的分享内容',
+                        thumbImage: '../image/loginPage/login.jpeg',
+                        type: 'news',
+                        webpageUrl: 'www.baidu.com'
+                    })
+                        .catch((error) => {
+                            Alert.alert(error.message);
+                        });
+                } else {
+                    Alert.alert('请安装微信');
+                }
+            });
+    }
+
     render() {
         return (
             <Container>
                 <Content>
                     <Button block onPress={this.toLoginPage}>
                         <Text>退出</Text>
+                    </Button>
+                    <Button block onPress={this.toShareWeixin}>
+                        <Text>微信分享</Text>
                     </Button>
                 </Content>
             </Container>

@@ -19,6 +19,7 @@ import com.react.rnspinkit.RNSpinkitPackage;
 import android.content.Intent;
 import android.content.res.Configuration;
 import cn.jpush.reactnativejpush.JPushPackage;   // <--   导入 JPushPackage
+import com.theweflex.react.WeChatPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -58,7 +59,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
             new RNSpinkitPackage(),
-            new JPushPackage(SHUTDOWN_TOAST, SHUTDOWN_LOG)   //  <-- 添加 JPushPackage
+            new JPushPackage(SHUTDOWN_TOAST, SHUTDOWN_LOG),   //  <-- 添加 JPushPackage
+            new WeChatPackage()
       );
     }
 
