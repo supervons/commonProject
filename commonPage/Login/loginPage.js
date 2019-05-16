@@ -10,6 +10,7 @@ import {Modal, View, NetInfo, Platform} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Realm from 'realm';
 import JPushModule from 'jpush-react-native';
+import TouchID from 'react-native-touch-id';
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ export default class LoginPage extends Component {
         this.loginAction = this.loginAction.bind(this);
         this.toRegisterPage = this.toRegisterPage.bind(this);
         this.codePushAction = this.codePushAction.bind(this);
+        this.loginActionByTouchId = this.loginActionByTouchId.bind(this);
         this.state = ({
             loginId: '',
             passWord: '',
@@ -66,6 +68,27 @@ export default class LoginPage extends Component {
                 Toast.show({text: '使用流量中，请确保流量充足哦.', type: 'danger'});
             }
         })
+    }
+
+    loginActionByTouchId() {
+        const optionalConfigObject = {
+            title: '身份认证', // Android
+            imageColor: '#e00606', // Android
+            imageErrorColor: '#ff0000', // Android
+            sensorDescription: '请触摸传感器', // Android
+            sensorErrorDescription: 'Failed', // Android
+            cancelText: '取消', // Android
+            unifiedErrors: false, // use unified error messages (default false)
+            passcodeFallback: false,
+        };
+        TouchID.authenticate('指纹登录', optionalConfigObject)
+            .then(success => {
+                this.setState({loginId: '456', passWord: '123123'});
+                this.loginAction();
+            })
+            .catch(error => {
+                Toast.show({text: '认证失败 Authentication Failed', type: 'danger'});
+            });
     }
 
     loginAction() {
@@ -180,6 +203,9 @@ export default class LoginPage extends Component {
                         <Button block
                                 style={CommonStyle.buttonStyle}
                                 onPress={this.loginAction}><Text>登录</Text></Button>
+                        <Button block
+                                style={CommonStyle.buttonStyle}
+                                onPress={this.loginActionByTouchId}><Text>指纹登录</Text></Button>
 
                         <View style={CommonStyle.textStyle}>
                             <View>
