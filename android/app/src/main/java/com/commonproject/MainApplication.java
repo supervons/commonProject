@@ -3,12 +3,13 @@ package com.commonproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.syanpicker.RNSyanImagePickerPackage;
 import com.beefe.picker.PickerViewPackage;
 import io.realm.react.RealmReactPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.github.yamill.orientation.OrientationPackage;
 import com.rnfingerprint.FingerprintAuthPackage;
-import com.reactlibrary.RNSyanImagePickerPackage;
+import com.syanpicker.RNSyanImagePickerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -48,6 +49,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSyanImagePickerPackage(),
             new PickerViewPackage(),
             new RealmReactPackage(),
             //第一个参数是刚刚申请的key（可以根据环境配置）
@@ -55,7 +57,6 @@ public class MainApplication extends Application implements ReactApplication {
             new CodePush("E77ylQ553XXIVzWYahJz2xGWTYP74ksvOXqog", MainApplication.this, BuildConfig.DEBUG,"http://47.93.31.98:3000/"),
             new OrientationPackage(),
             new FingerprintAuthPackage(),
-            new RNSyanImagePickerPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
             new RNSpinkitPackage(),
