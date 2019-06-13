@@ -9,7 +9,6 @@ import io.realm.react.RealmReactPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.github.yamill.orientation.OrientationPackage;
 import com.rnfingerprint.FingerprintAuthPackage;
-import com.syanpicker.RNSyanImagePickerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
