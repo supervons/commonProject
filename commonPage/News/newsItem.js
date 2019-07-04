@@ -38,7 +38,8 @@ export default class NewsItem extends Component {
                 </CardItem>
                 <CardItem cardBody>
                     <Image source={require('../image/titleImage/alita.jpeg')}
-                           style={{height: 200, width: null, flex: 1}}/>
+                           style={{height: 200, width: null, flex: 1,
+                               resizeMode: 'contain'}}/>
                 </CardItem>
                 <CardItem>
                     <Left>

@@ -121,7 +121,7 @@ class CodePushScreen extends Component {
                     <Text style={styles.syncButton}>Press for dialog-driven sync</Text>
                 </TouchableOpacity>
                 {progressView}
-                <Image style={styles.image} resizeMode={Image.resizeMode.contain} source={require("../../image/titleImage/alita.jpeg")}/>
+                <Image style={styles.image} source={require("../../image/titleImage/alita.jpeg")}/>
                 <TouchableOpacity onPress={this.toggleAllowRestart.bind(this)}>
                     <Text style={styles.restartToggleButton}>Restart { this.state.restartAllowed ? "allowed" : "forbidden"}</Text>
                 </TouchableOpacity>
@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
         margin: 30,
         width: Dimensions.get("window").width - 100,
         height: 365 * (Dimensions.get("window").width - 100) / 651,
+        resizeMode: 'contain'
     },
     messages: {
         marginTop: 30,
