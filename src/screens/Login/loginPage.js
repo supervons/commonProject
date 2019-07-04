@@ -11,6 +11,7 @@ import * as Animatable from 'react-native-animatable';
 import Realm from 'realm';
 import JPushModule from 'jpush-react-native';
 import TouchID from 'react-native-touch-id';
+import Toaster from '../../components/toast/toast';
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -61,11 +62,11 @@ export default class LoginPage extends Component {
         NetInfo.addEventListener('connectionChange', (networkType) => {
             const netType = networkType.type;
             if (netType === 'none') {
-                Toast.show({text: '貌似没网哦，请检查当前网络状态', type: 'warning'});
+                Toaster.showToast('貌似没网哦，请检查当前网络状态');
             } else if (netType === 'wifi') {
-                Toast.show({text: '使用wifi访问... ', type: 'warning'});
+                Toaster.showToast('使用wifi访问... ', 'SHORT', 'BOTTOM');
             } else {
-                Toast.show({text: '使用流量中，请确保流量充足哦.', type: 'danger'});
+                Toaster.showToast('使用流量中，请确保流量充足哦.', 'SHORT', 'BOTTOM');
             }
         })
     }
@@ -95,11 +96,11 @@ export default class LoginPage extends Component {
         const loginId = this.state.loginId;
         const passWord = this.state.passWord;
         if (loginId === '') {
-            Toast.show({text: '请输入用户名', buttonText: '好的', type: 'danger'});
+            Toaster.showToast('请输入用户名');
             this.rubberBandUserName();
             return;
         } else if (passWord === '') {
-            Toast.show({text: '请输入密码', buttonText: '好的', type: 'danger'});
+            Toaster.showToast('请输入密码');
             this.rubberBandPassWord();
             return;
         }

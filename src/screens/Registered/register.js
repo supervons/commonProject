@@ -15,6 +15,7 @@ import {createForm} from 'rc-form';
 import {Container, Content, Form, Item, Input, Label, Button, Text,} from 'native-base';
 import CommonStyle from '../../common/CommonProperties/CommonStyle';
 import FormItem from './formItem';
+import Toast from '../../components/toast/toast';
 
 const {width} = Dimensions.get('window');
 class Register extends Component {
@@ -28,8 +29,7 @@ class Register extends Component {
         this.submit = this.submit.bind(this);
         this.state = ({
             userCount: '',
-            passWord: '',
-            userName: '',
+            passWord: ''
         });
     }
 
@@ -53,7 +53,10 @@ class Register extends Component {
     };
 
     submit() {
-        console.log(JSON.stringify(this.state.userCount + ' - ' + this.state.userName))
+        if(this.state.userCount === '' || this.state.userName === ''){
+            Toast.showToast('请完善注册信息');
+        }
+        console.log(JSON.stringify(this.state.userCount + ' - ' + this.state.userName));
     };
 
     render() {
@@ -90,34 +93,6 @@ class Register extends Component {
                             <Label>密码/Password</Label>
                             <Input secureTextEntry={true}
                                    onChangeText={(text) => this.setState({passWord: text})}/>
-                        </Item>
-                        {getFieldDecorator('username', {
-                            validateFirst: true,
-                            rules: [
-                                {required: true, message: '请输入姓名!'},
-                                {
-                                    pattern: /^[\u4e00-\u9fa5]{2,4}$/,
-                                    message: '请输入正确的姓名（中文 2 - 4 位）!',
-                                },
-                                {
-                                    validator: (rule, value, callback) => {
-                                        this.checkUserName(value, callback);
-                                    },
-                                    message: '格式不对!',
-                                },
-                            ],
-                        })(
-                            <FormItem
-                                label="姓名"
-                                autoFocus
-                                placeholder="手机号"
-                                error={getFieldError('username')}
-                                secureTextEntry={false}
-                            />
-                        )}
-                        <Item floatingLabel>
-                            <Label>年龄/Age</Label>
-                            <Input onChangeText={(text) => this.setState({passWord: text})}/>
                         </Item>
                         <Button block style={CommonStyle.buttonStyle}
                                 onPress={this.submit}>
