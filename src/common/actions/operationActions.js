@@ -14,6 +14,16 @@ const _getUserLoginAction = (param, callback, failure) => {
         });
 };
 
+const _userRegisterAction = (param, callback, failure) => {
+    const requestUrl = CommonLink.fetchRegister();
+    return HttpUtils.postRequest(requestUrl, param)
+        .then((responseData) => {
+            callback(responseData);
+        }, (errorData) => {
+            failure(errorData);
+        });
+};
+
 const _getTestAction = (param, callback, failure) => {
     const requestUrl = CommonLink.fetchLogOut();
     return HttpUtils.getRequest(requestUrl, param)
@@ -27,6 +37,7 @@ const _getTestAction = (param, callback, failure) => {
 const operationActions = {
     getUserLoginAction: (param, callback, failure) => _getUserLoginAction(param, callback, failure),
     getTestAction: (param, callback, failure) => _getTestAction(param, callback, failure),
+    userRegisterAction: (param, callback, failure) => _userRegisterAction(param, callback, failure)
 };
 
 module.exports = operationActions;

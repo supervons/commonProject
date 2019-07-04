@@ -6,9 +6,6 @@ import PropTypes from 'prop-types';
 import {
     StyleSheet,
     Dimensions,
-    TextInput,
-    View,
-    Alert,
 } from 'react-native';
 
 import {createForm} from 'rc-form';
@@ -16,8 +13,10 @@ import {Container, Content, Form, Item, Input, Label, Button, Text,} from 'nativ
 import CommonStyle from '../../common/CommonProperties/CommonStyle';
 import FormItem from './formItem';
 import Toast from '../../components/toast/toast';
+import OperationActions from '../../common/actions/operationActions';
 
 const {width} = Dimensions.get('window');
+
 class Register extends Component {
 
     static propTypes = {
@@ -28,7 +27,7 @@ class Register extends Component {
         super(props);
         this.submit = this.submit.bind(this);
         this.state = ({
-            userCount: '',
+            loginId: '',
             passWord: ''
         });
     }
@@ -40,23 +39,31 @@ class Register extends Component {
         headerStyle: {},
     };
 
-    checkUserCount = (value, callback) => {
+    checkLoginId = (value, callback) => {
         this.setState({
-            userCount: value,
-        });
-    };
-
-    checkUserName = (value, callback) => {
-        this.setState({
-            userName: value,
+            loginId: value,
         });
     };
 
     submit() {
-        if(this.state.userCount === '' || this.state.userName === ''){
+        const loginId = this.state.loginId;
+        const passWord = this.state.passWord;
+        if (this.state.loginId === '' || this.state.passWord === '') {
             Toast.showToast('请完善注册信息');
+        } else {
+            // 用户注册
+            OperationActions.userRegisterAction({
+                loginId: loginId,
+                passWord: passWord
+            }, (response) => {
+                if (response.code === 'success') {
+                    Toast.showToast(response.data.resultMsg);
+                    this.props.navigation.navigate('Login', {loginId: this.state.loginId});
+                } else {
+                    Toast.showToast(response.msg);
+                }
+            });
         }
-        console.log(JSON.stringify(this.state.userCount + ' - ' + this.state.userName));
     };
 
     render() {
@@ -65,7 +72,7 @@ class Register extends Component {
             <Container>
                 <Content>
                     <Form style={{marginTop: 120}}>
-                        {getFieldDecorator('usercount', {
+                        {getFieldDecorator('loginId', {
                             validateFirst: true,
                             rules: [
                                 {required: true, message: '请输入手机号!'},
@@ -75,7 +82,7 @@ class Register extends Component {
                                 },
                                 {
                                     validator: (rule, value, callback) => {
-                                        this.checkUserCount(value, callback);
+                                        this.checkLoginId(value, callback);
                                     },
                                     message: '手机号已经被注册!',
                                 },
@@ -85,7 +92,7 @@ class Register extends Component {
                                 label="手机号"
                                 autoFocus
                                 placeholder="手机号"
-                                error={getFieldError('usercount')}
+                                error={getFieldError('loginId')}
                                 secureTextEntry={false}
                             />
                         )}
@@ -96,7 +103,7 @@ class Register extends Component {
                         </Item>
                         <Button block style={CommonStyle.buttonStyle}
                                 onPress={this.submit}>
-                            <Text >注册</Text>
+                            <Text>注册</Text>
                         </Button>
                     </Form>
                 </Content>

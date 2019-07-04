@@ -14,6 +14,14 @@ const commonLinks = {
         return hostUrl + subUrl;
     },
     /**
+     * 用户注册接口
+     * @returns {string}
+     */
+    fetchRegister(){
+        const subUrl = 'user/addUser';
+        return hostUrl + subUrl;
+    },
+    /**
      * 用户注销
      * @returns {string}
      */

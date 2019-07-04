@@ -58,6 +58,12 @@ export default class LoginPage extends Component {
             this.setState({isConnected: isConnected});
         });
 
+        if (this.props.navigation.state.params !== undefined) {
+            this.setState({
+                loginId: this.props.navigation.state.params.loginId
+            })
+        }
+
         //监听网络变化事件
         NetInfo.addEventListener('connectionChange', (networkType) => {
             const netType = networkType.type;
