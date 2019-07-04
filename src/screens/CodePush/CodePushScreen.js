@@ -26,8 +26,8 @@ class CodePushScreen extends Component {
     static navigationOptions = {
         title: '版本更新',
         gesturesEnabled: true,
-        headerStyle: {                                 //导航栏样式设置
-            backgroundColor: '#8bc9ff',
+        headerTransparent: true,
+        headerStyle: {
         },
     };
 
