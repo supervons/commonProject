@@ -179,7 +179,7 @@ export default class LoginPage extends Component {
                         </View>
                         <Animatable.View ref={this.handleUserName}>
                             <Item floatingLabel>
-                                <Label style={{marginTop: 5}}>用户名/Username</Label>
+                                <Label>用户名/Username</Label>
                                 <Input onChangeText={(text) => this.setState({loginId: text})}
                                        autoCorrect={false}
                                        autoCapitalize="none"
@@ -188,7 +188,7 @@ export default class LoginPage extends Component {
                         </Animatable.View>
                         <Animatable.View ref={this.handlePassWord}>
                             <Item floatingLabel>
-                                <Label style={{marginTop: 5}}>密码/Password</Label>
+                                <Label>密码/Password</Label>
 
                                 <Input secureTextEntry={true}
                                        onChangeText={(text) => this.setState({passWord: text})}

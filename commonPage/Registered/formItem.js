@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
     },
     input: {
-        height: 42,
+        height: 60,
         fontSize: 16,
     },
     errorinfo: {
@@ -67,8 +67,7 @@ export default class FormItem extends React.PureComponent {
                            label={`${label}：`}
                            duration={150}
                            onChangeText={onChange}
-                           highlightColor="#40a9ff"
-                           underlineColorAndroid="#40a9ff"/>
+                           highlightColor="#40a9ff"/>
                 </Item>
                 <View style={styles.errorinfo}>{this.getError(error)}</View>
             </View>
