@@ -26,6 +26,10 @@ import configureStore from './commonPage/Components/Redux/store/store'
 
 import {Root, Icon} from "native-base";
 
+import { Sentry } from 'react-native-sentry';
+
+Sentry.config('').install();
+
 const store = configureStore();
 //底部 tab 导航
 const Tabs = createMaterialTopTabNavigator({

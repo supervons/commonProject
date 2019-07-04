@@ -3,6 +3,7 @@ package com.commonproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.sentry.RNSentryPackage;
 import com.syanpicker.RNSyanImagePickerPackage;
 import com.beefe.picker.PickerViewPackage;
 import io.realm.react.RealmReactPackage;
@@ -48,6 +49,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSentryPackage(),
             new RNSyanImagePickerPackage(),
             new PickerViewPackage(),
             new RealmReactPackage(),
