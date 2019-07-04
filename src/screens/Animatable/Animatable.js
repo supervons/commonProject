@@ -41,7 +41,7 @@ export default class App extends Component {
                     <Animatable.View ref={this.handleViewRef}>
                         <Thumbnail
                             style={{width:150,height:150}}
-                            source={require('../image/titleImage/alita.jpeg')}/>
+                            source={require('../../resource/image/titleImage/alita.jpeg')}/>
                     </Animatable.View>
                 </TouchableWithoutFeedback>
             </View>

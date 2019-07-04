@@ -5,8 +5,8 @@
 import {View} from 'react-native';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addText, subtractText, resetText} from '../Redux/action/action';
-import {setTestText} from '../Redux/action/testTextAction';
+import {addText, subtractText, resetText} from './action/action';
+import {setTestText} from './action/testTextAction';
 import {
     Input,
     Text,

@@ -29,7 +29,7 @@ export default class NewsItem extends Component {
             <Card>
                 <CardItem>
                     <Left>
-                        <Thumbnail source={require('../image/titleImage/title.jpg')}/>
+                        <Thumbnail source={require('../../resource/image/titleImage/title.jpg')}/>
                         <Body>
                         <Text>{this.props.newsTitle}</Text>
                         <Text note>{this.props.newsIntroduction}</Text>
@@ -37,7 +37,7 @@ export default class NewsItem extends Component {
                     </Left>
                 </CardItem>
                 <CardItem cardBody>
-                    <Image source={require('../image/titleImage/alita.jpeg')}
+                    <Image source={require('../../resource/image/titleImage/alita.jpeg')}
                            style={{height: 200, width: null, flex: 1,
                                resizeMode: 'contain'}}/>
                 </CardItem>

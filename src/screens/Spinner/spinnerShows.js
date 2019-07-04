@@ -3,8 +3,8 @@
  */
 import React, {Component} from 'react';
 import {Container, Header, View, Button, Icon, Fab, Text} from 'native-base';
-import CommonStyle from '../CommonProperties/CommonStyle';
-import Spinner from '../Spinner/spinner';
+import CommonStyle from '../../common/CommonProperties/CommonStyle';
+import Spinner from './spinner';
 /**
  *
  * List of available spinkerType

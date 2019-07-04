@@ -15,7 +15,7 @@ import {
     Toast
 } from 'native-base';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
-import CommonStyles from '../../../commonPage/CommonProperties/CommonStyle';
+import CommonStyles from '../../common/CommonProperties/CommonStyle';
 import {View, Text} from 'react-native';
 
 import Picker from 'react-native-picker';

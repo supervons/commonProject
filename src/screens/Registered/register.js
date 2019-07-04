@@ -13,7 +13,7 @@ import {
 
 import {createForm} from 'rc-form';
 import {Container, Content, Form, Item, Input, Label, Button, Text,} from 'native-base';
-import CommonStyle from '../CommonProperties/CommonStyle';
+import CommonStyle from '../../common/CommonProperties/CommonStyle';
 import FormItem from './formItem';
 
 const {width} = Dimensions.get('window');

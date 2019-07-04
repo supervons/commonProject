@@ -3,8 +3,8 @@
  */
 import React, {Component} from 'react';
 import {Container, Content, Form, Item, Input, Toast, Label, Button, Text, Thumbnail} from 'native-base';
-import CommonStyle from '../CommonProperties/CommonStyle';
-import OperationActions from '../Components/operationActions';
+import CommonStyle from '../../common/CommonProperties/CommonStyle';
+import OperationActions from '../../common/actions/operationActions';
 import Spinner from '../Spinner/spinner';
 import {Modal, View, NetInfo, Platform} from 'react-native';
 import * as Animatable from 'react-native-animatable';
@@ -175,7 +175,7 @@ export default class LoginPage extends Component {
                 <Content>
                     <Form style={{marginTop: 220}}>
                         <View style={CommonStyle.centerViewStyle}>
-                            <Thumbnail large source={require('../image/loginPage/login2.jpeg')}/>
+                            <Thumbnail large source={require('../../resource/image/loginPage/login2.jpeg')}/>
                         </View>
                         <Animatable.View ref={this.handleUserName}>
                             <Item floatingLabel>

@@ -36,41 +36,41 @@ Of course, you can also develop based on this project. It would be better if you
 ## 3.Loading动画组件:/spinner.js
     文件位置：commonPage/Spinner/spinner.js
     作用：用于网络请求中时，展示loading动画，增强交互。
-![Loading加载动画展示](commonPage/image/exhibitionPicture/SpinnerShows.gif)
+![Loading加载动画展示](src/resource/image/exhibitionPicture/SpinnerShows.gif)
 
 ## 4.Card Image 列表组件展示:News.js
     文件位置：News/news.js
     作用：用于展示带图片，头像的信息列表。
-![News列表展示](commonPage/image/exhibitionPicture/news.gif)
+![News列表展示](src/resource/image/exhibitionPicture/news.gif)
 
 ## 5.NetInfo 检测用户网络状态:LoginPage.js
     文件位置：Login/loginPage.js
     作用：检测用户的网络变化，作出相应提示。
-![网络检测展示](commonPage/image/exhibitionPicture/netInfo.gif)
+![网络检测展示](src/resource/image/exhibitionPicture/netInfo.gif)
 
 ## 6.ImagePicker 多图选择器:LoginPage.js
     使用组件：react-native-syan-image-picker
     文件位置：Components/ImagePicker/imagePickerComponents.js
     作用：选择多张图片，可进行编辑（仅选单张可以），浏览。
-![多图选择器展示](commonPage/image/exhibitionPicture/imagePicker.gif)
+![多图选择器展示](src/resource/image/exhibitionPicture/imagePicker.gif)
 
 ## 7.Code-Push 热更新:CodePushScreen.js
     使用组件：react-native-code-push
     文件位置：Components/CodePush/CodePushScreen.js
     作用：iOS，安卓热更新部署。
-![热更新展示](commonPage/image/exhibitionPicture/code-push.gif)
+![热更新展示](src/resource/image/exhibitionPicture/code-push.gif)
 
 ## 8.Touch-id 指纹识别:TouchIdView.js
     使用组件：react-native-touch-id
     文件位置：Components/TouchId/TouchIdView.js
     作用：安卓，iOS指纹识别，iOS 高版本有 Face Id。
-![指纹识别展示](commonPage/image/exhibitionPicture/touchId.gif)
+![指纹识别展示](src/resource/image/exhibitionPicture/touchId.gif)
 
 ## 9.Orientation 横竖屏切换:MainPage.js
     使用组件：react-native-orientation
     文件位置：Components/MainPage.js
     作用：切换屏幕方向。
-![横竖屏](commonPage/image/exhibitionPicture/orientation.gif)
+![横竖屏](src/resource/image/exhibitionPicture/orientation.gif)
 
 # Currently included components:
 

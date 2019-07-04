@@ -2,7 +2,7 @@
  * Created by supervons on 2019/03/02.
  * 新闻相关接口
  */
-import CommonLinks from './commonLinks';
+import CommonLinks from '../commonLinks';
 
 const newsUrlLink = {
     /**

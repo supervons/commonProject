@@ -14,7 +14,7 @@ import {
     View,
     ActivityIndicator
 } from 'react-native';
-import NewsAction from '../Components/newsAction';
+import NewsAction from '../../common/actions/newsAction';
 
 export default class News extends Component {
 

@@ -13,7 +13,7 @@ import {
     CardItem,
     Card
 } from 'native-base';
-import CommonStyles from '../../../commonPage/CommonProperties/CommonStyle';
+import CommonStyles from '../../common/CommonProperties/CommonStyle';
 
 export default class EchartsView extends Component {
     constructor(props) {

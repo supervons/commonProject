@@ -16,7 +16,7 @@ import {
 } from 'native-base';
 
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
-import CommonStyles from './CommonProperties/CommonStyle';
+import CommonStyles from '../common/CommonProperties/CommonStyle';
 import Realm from 'realm';
 import Orientation from 'react-native-orientation';
 

@@ -1,7 +1,7 @@
 /**
  * Created by supervons on 2019/2/21.
  */
-import CommonLink from './commonLinks';
+import CommonLink from '../commonLinks';
 import HttpUtils from '../Fetch/HttpUtils';
 
 const _getUserLoginAction = (param, callback, failure) => {

@@ -77,7 +77,7 @@ export default class ImagePickerComponents extends Component {
                                     <CardItem>
                                         <Left>
                                             <Thumbnail
-                                                source={item.uri == null ? require('../../image/titleImage/alita.jpeg') : {uri: item.uri}}/>
+                                                source={item.uri == null ? require('../../resource/image/titleImage/alita.jpeg') : {uri: item.uri}}/>
                                             <Body>
                                             <Text>大小：{item.size}</Text>
                                             </Body>
@@ -86,7 +86,7 @@ export default class ImagePickerComponents extends Component {
                                     <CardItem cardBody>
                                         {/*等比缩放*/}
                                         <Image style={{height: deviceWidth * item.height / item.width, flex: 1}}
-                                               source={item.uri == null ? require('../../image/titleImage/alita.jpeg') : {uri: item.uri}}/>
+                                               source={item.uri == null ? require('../../resource/image/titleImage/alita.jpeg') : {uri: item.uri}}/>
                                     </CardItem>
                                     <CardItem>
                                         <Text>宽：{item.width}/</Text>
