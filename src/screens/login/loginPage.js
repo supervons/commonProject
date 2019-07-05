@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {Container, Content, Form, Item, Input, Toast, Label, Button, Text, Thumbnail} from 'native-base';
 import CommonStyle from '../../common/CommonProperties/CommonStyle';
 import OperationActions from '../../common/actions/operationActions';
-import Spinner from '../Spinner/spinner';
+import Spinner from '../spinner/spinner';
 import {Modal, View, NetInfo, Platform} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Realm from 'realm';
