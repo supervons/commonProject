@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import {TouchableNativeFeedback, Alert} from 'react-native';
 import {Container, Header, Content, Badge, Footer, FooterTab, Button, Icon, Text} from 'native-base';
 import * as WeChat from 'react-native-wechat';
+import Realm from "realm";
 export default class MainPage extends Component {
 
     constructor(props) {
@@ -36,7 +37,13 @@ export default class MainPage extends Component {
             },
                 {
                     text: "确定", onPress: ()=> {
-                    this.props.navigation.replace('Login')
+                        let realm = new Realm();
+                        realm.write(() => {
+                            // 退出删除该表所有数据
+                            let allBooks = realm.objects('UserLocalData');
+                            realm.delete(allBooks);
+                        });
+                        this.props.navigation.replace('Login')
                 }
                 }
             ]

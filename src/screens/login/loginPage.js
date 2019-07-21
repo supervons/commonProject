@@ -43,6 +43,17 @@ export default class LoginPage extends Component {
     rubberBandPassWord = () => this.passWord.rubberBand(800).then(endState => console.log(endState.finished ? 'wobble finished' : 'wobble cancelled'));
 
     componentDidMount() {
+        let realm = new Realm();
+        try{
+            // 判断本地缓存数据库中，是否有登录数据
+            let userLocalData = realm.objects('UserLocalData');
+            if(userLocalData.length>0){
+                // 如果数据大于 0 则直接跳转到登录页
+                this.props.navigation.replace('MainPage', {param: {}});
+            }
+        }catch (e) {
+
+        }
         if (Platform.OS !== 'ios') {
             JPushModule.initPush();
             JPushModule.getRegistrationID(registrationId => {
