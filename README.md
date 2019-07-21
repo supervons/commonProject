@@ -1,15 +1,13 @@
 commonProject
 =
-    基于react-native v0.53版本创建的通用项目，目的在于累积组件，拓展业务新能力。
-    commonProject base on react-native v0.53
+    基于react-native v0.59.8版本创建的通用项目，目的在于累积组件，拓展业务新能力。
+    commonProject base on react-native v0.59.8
 # 目的与意义
-你可以基于本项目创建一个沙盒项目，用于研究新功能来扩展现有业务。
--
-当然你也可以基于本项目来进行开发，要是能告诉我那就更好了。
--
-You can create a sandbox project based on this project to research new features to extend existing business.
--
-Of course, you can also develop based on this project. It would be better if you could tell me.
+    你可以基于本项目创建一个沙盒项目，用于研究新功能来扩展现有业务。
+    当然你也可以基于本项目来进行开发，要是能告诉我那就更好了。
+
+    You can create a sandbox project based on this project to research new features to extend existing business.
+    Of course, you can also develop based on this project. It would be better if you could tell me.
 -
 
 # 目前包含的组件：
@@ -25,52 +23,62 @@ Of course, you can also develop based on this project. It would be better if you
 | [热更新](#7code-push-热更新codepushscreenjs)  | 更新无需重新下载，更快速迭代版本 | 登录页左下角进入     |
 | [指纹识别](#8touch-id-指纹识别touchidviewjs)  | 指纹识别 & iOS 高版本有 FaceId | 登录后主页选择指纹识别模块     |
 | [横竖屏切换](#9orientation-横竖屏切换mainpagejs)  | 横竖屏切换工具 | 登录后主页选择横竖屏切换模块     |
+| [realm数据库缓存](#10realm-数据库缓存mainpagejs)  | app数据缓存，可增删改查 | 登录存储token     |
+| [极光推送](#11极光推送)  | 推送消息到客户端 | 目前仅android     |
+| [微信分享](#12微信分享)  | 分享数据到微信，可微信支付（需认证） | 微信相关功能（目前仅android）     |
+| [Sentrybug检测](#13sentrybug检测)  | 检测并上传app运行在终端时引起闪退的bug等 | 终端bug检测     |
 
 ## 1.动画组件：react-native-animatable 
-    文件位置：commonPage/Animatable/Animatable.js
+    文件位置：src/screens/animatable/Animatable.js
 
 ## 2.网络组件：HttpUtils.js
-    文件位置：Fetch/HttpUtils.js
+    文件位置：src/common/Fetch/HttpUtils.js
     作用：通过在Components/commonLinks.js中设置接口api地址，在同目录operationActions.js中调用Fetch/HttpUtils中进行请求，可选get/post。
 
 ## 3.Loading动画组件:/spinner.js
-    文件位置：commonPage/Spinner/spinner.js
+    文件位置：src/screens/spinner/spinner.js
     作用：用于网络请求中时，展示loading动画，增强交互。
 ![Loading加载动画展示](src/resource/image/exhibitionPicture/SpinnerShows.gif)
 
 ## 4.Card Image 列表组件展示:News.js
-    文件位置：News/news.js
+    文件位置：src/screens/news/news.js
     作用：用于展示带图片，头像的信息列表。
 ![News列表展示](src/resource/image/exhibitionPicture/news.gif)
 
 ## 5.NetInfo 检测用户网络状态:LoginPage.js
-    文件位置：Login/loginPage.js
+    文件位置：src/screens/login/loginPage.js
     作用：检测用户的网络变化，作出相应提示。
 ![网络检测展示](src/resource/image/exhibitionPicture/netInfo.gif)
 
 ## 6.ImagePicker 多图选择器:LoginPage.js
     使用组件：react-native-syan-image-picker
-    文件位置：Components/ImagePicker/imagePickerComponents.js
+    文件位置：src/screens/imagePicker/imagePickerComponents.js
     作用：选择多张图片，可进行编辑（仅选单张可以），浏览。
 ![多图选择器展示](src/resource/image/exhibitionPicture/imagePicker.gif)
 
 ## 7.Code-Push 热更新:CodePushScreen.js
     使用组件：react-native-code-push
-    文件位置：Components/CodePush/CodePushScreen.js
+    文件位置：src/screens/codePush/CodePushScreen.js
     作用：iOS，安卓热更新部署。
 ![热更新展示](src/resource/image/exhibitionPicture/code-push.gif)
 
 ## 8.Touch-id 指纹识别:TouchIdView.js
     使用组件：react-native-touch-id
-    文件位置：Components/TouchId/TouchIdView.js
+    文件位置：src/screens/touchId/touchIdView.js
     作用：安卓，iOS指纹识别，iOS 高版本有 Face Id。
 ![指纹识别展示](src/resource/image/exhibitionPicture/touchId.gif)
 
 ## 9.Orientation 横竖屏切换:MainPage.js
     使用组件：react-native-orientation
-    文件位置：Components/MainPage.js
+    文件位置：src/screens/MainPage.js
     作用：切换屏幕方向。
 ![横竖屏](src/resource/image/exhibitionPicture/orientation.gif)
+
+## 10.realm 数据库缓存:MainPage.js
+    使用组件：realm@2.28.0
+    文件位置：src/screens/MainPage.js
+    作用：数据库形式存储缓存信息。
+![realm数据库](src/resource/image/exhibitionPicture/real_data_image.png)
 
 # Currently included components:
 
@@ -121,3 +129,8 @@ Of course, you can also develop based on this project. It would be better if you
     Use components: react-native-orientation
     File location: Components/MainPage.js
     Function: Switch the screen orientation.
+    
+## 10.realm Database Cache: MainPage.js
+     Use components: realm@2.28.0
+     File location: src/screens/MainPage.js
+     Role: Database format stores cache information.
