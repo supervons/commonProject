@@ -5,7 +5,6 @@ import React, {Component} from 'react';
 import {Container, Content, Form, Item, Input, Toast, Label, Button, Text, Thumbnail} from 'native-base';
 import CommonStyle from '../../common/CommonProperties/CommonStyle';
 import OperationActions from '../../common/actions/operationActions';
-import Spinner from '../spinner/spinner';
 import {Modal, View, NetInfo, Platform} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Realm from 'realm';
@@ -213,11 +212,6 @@ export default class LoginPage extends Component {
                                        vauel={this.state.passWord}/>
                             </Item>
                         </Animatable.View>
-                        <Spinner
-                            showSpinner={this.state.loginSpinner}
-                            spinkerSize={50}
-                            spinkerType='Wave'
-                            spinkerColor='#3B77FF'/>
                         <Button block
                                 style={CommonStyle.buttonStyle}
                                 onPress={this.loginAction}><Text>登录</Text></Button>

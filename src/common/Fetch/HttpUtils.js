@@ -3,7 +3,7 @@
 import {Component} from 'react'
 import {Toast} from 'native-base';
 import Realm from 'realm';
-
+import Loading from '../../components/loading/Loading'
 /**
  * fetch 网络请求的header，可自定义header 内容
  * 创建存储用户本地数据表，包含 jwtToken 用于请求校验
@@ -99,18 +99,21 @@ export default class HttpUtils extends Component {
      * @returns {Promise}
      */
     static getRequest = (url, params = {}) => {
+        Loading.show();
         return timeoutFetch(fetch(handleUrl(url)(params), {
             method: 'GET',
             headers: {
                 ...getHeader(),
             },
         })).then(response => {
+            Loading.show();
             if (response.ok) {
                 return response.json()
             } else {
                 Toast.show({text:'服务器开小差了，请稍后再试...',buttonText:'好的',type:'warning'});
             }
         }).then(response => {
+            Loading.show();
             // response.code：是与服务器端约定code：200表示请求成功，非200表示请求失败，message：请求失败内容
             if (response) {
                 return response
@@ -120,6 +123,7 @@ export default class HttpUtils extends Component {
                 return response
             }
         }).catch(error => {
+            Loading.show();
             Toast.show({text:'服务器开小差了，请稍后再试...',buttonText:'好的',type:'warning'});
         })
     }
@@ -131,6 +135,7 @@ export default class HttpUtils extends Component {
      * @returns {Promise}
      */
     static postRequest = (url, params = {}) => {
+        Loading.show();
         return timeoutFetch(fetch(url, {
             method: 'POST',
             headers: {
@@ -138,12 +143,14 @@ export default class HttpUtils extends Component {
             },
             body: JSON.stringify(params)
         })).then(response => {
+            Loading.hide();
             if (response.ok) {
                 return response.json()
             } else {
                 Toast.show({text:'服务器开小差了，请稍后再试...\r\nCode:' + response.status,buttonText:'好的',type:'warning'});
             }
         }).then(response => {
+            Loading.hide();
             // response.code：是与服务器端约定code：200表示请求成功，非200表示请求失败，message：请求失败内容
             if (response && response.code === 200) {
                 return response
@@ -152,6 +159,7 @@ export default class HttpUtils extends Component {
                 return response
             }
         }).catch(error => {
+            Loading.hide();
             Toast.show({text:'服务器开小差了，请稍后再试...',buttonText:'好的',type:'warning'});
         })
     }

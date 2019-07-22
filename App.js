@@ -9,6 +9,7 @@ import {Provider} from 'react-redux';
 import configureStore from './src/screens/redux/store/store'
 import RootStack from './src/routers/index'
 import {Root, Icon} from "native-base";
+import Loading from './src/components/loading/Loading'
 
 import {Sentry} from 'react-native-sentry';
 
@@ -23,6 +24,7 @@ export default class App extends Component {
             <Provider store={store}>
                 <Root>
                     <RootStack/>
+                    <Loading/>
                 </Root>
             </Provider>
         )
