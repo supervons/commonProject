@@ -14,7 +14,9 @@ class Loading extends Component {
         super(props);
         _this = this;
         this.state = {
-            show: false
+            show: false,
+            type: ['CircleFlip', 'Bounce', 'Wave', 'FadingCircle', 'FadingCircleAlt',
+                'WanderingCubes', 'Pulse', 'ChasingDots', 'ThreeBounce', 'Circle', '9CubeGrid']
         };
     }
 
@@ -26,6 +28,10 @@ class Loading extends Component {
     };
 
     render() {
+        // 随机动画
+        const random = (Math.random().toFixed(1) * 11).toFixed(0) % 11;
+        // 随机颜色
+        const color = '#' + Math.floor( Math.random() * 0xffffff ).toString(16);
         if (this.state.show) {
             return (
                 <View style={styles.LoadingPage}>
@@ -40,11 +46,11 @@ class Loading extends Component {
                         zIndex: 999
                     }}>
                         <Spinner
-                            showSpinner={true}
+                            showSpinner={this.state.show}
                             spinkerSize={50}
-                            spinkerType='CircleFlip'
-                            spinkerColor='#3B77FF'/>
-                        <Text style={{marginLeft: 10, color: "#FFF", marginTop: 10}}>加载中...</Text>
+                            spinkerType={this.state.type[random]}
+                            spinkerColor={color}/>
+                        <Text style={{marginLeft: 10, color: "#FFF", marginTop: 10}}>努力加载中...</Text>
                     </View>
                 </View>
             );

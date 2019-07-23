@@ -31,17 +31,14 @@ export default class Spinner extends Component {
     }
     render() {
         return (
-            //<Modal
-             //   visible={this.props.showSpinner}
-               // transparent={true}>
-                <View
-                    style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}>
-                    <Spinkiter isVisible={this.props.showSpinner} size={this.props.spinkerSize} type={this.props.spinkerType} color={this.props.spinkerColor}/>
-                </View>
-           // </Modal>
+            <View
+                style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}>
+                <Spinkiter isVisible={this.props.showSpinner} size={this.props.spinkerSize}
+                           type={this.props.spinkerType} color={this.props.spinkerColor}/>
+            </View>
         );
     }
 }
