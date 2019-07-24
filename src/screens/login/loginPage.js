@@ -42,6 +42,7 @@ export default class LoginPage extends Component {
     rubberBandPassWord = () => this.passWord.rubberBand(800).then(endState => console.log(endState.finished ? 'wobble finished' : 'wobble cancelled'));
 
     componentDidMount() {
+        console.disableYellowBox = true;
         let realm = new Realm();
         try{
             // 判断本地缓存数据库中，是否有登录数据
@@ -55,13 +56,17 @@ export default class LoginPage extends Component {
         }
         if (Platform.OS !== 'ios') {
             JPushModule.initPush();
-            JPushModule.getRegistrationID(registrationId => {
-            })
-            JPushModule.addReceiveCustomMsgListener((message) => {
+            JPushModule.notifyJSDidLoad((resultCode) => {
+                if (resultCode === 0) {
+                }
             });
-            JPushModule.addReceiveNotificationListener((message) => {
-                console.log("receive notification: " + message);
-            })
+            JPushModule.addReceiveNotificationListener((map) => {
+                console.log("alertContent: " + map.alertContent);
+                console.log("extras: " + map.extras);
+            });
+            JPushModule.addReceiveOpenNotificationListener((map) => {
+                this.props.navigation.replace('MainPage', {param: {}});
+            });
         }
         //检测网络是否连接
         NetInfo.isConnected.fetch().done((isConnected) => {
