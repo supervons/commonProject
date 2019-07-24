@@ -54,21 +54,25 @@ export default class LoginPage extends Component {
         }catch (e) {
 
         }
+        // 初始化推送信息
         JPushModule.initPush();
         if (Platform.OS !== 'ios') {
+            // android需要此设置
             JPushModule.notifyJSDidLoad((resultCode) => {
                 if (resultCode === 0) {
                 }
             });
         }
+        // 接受推送
         JPushModule.addReceiveNotificationListener((map) => {
             console.log("alertContent: " + map.alertContent);
             console.log("extras: " + map.extras);
         });
+        // 点击推送跳转页面
         JPushModule.addReceiveOpenNotificationListener((map) => {
             this.props.navigation.replace('MainPage', {param: {}});
         });
-        //检测网络是否连接
+        // 检测网络是否连接
         NetInfo.isConnected.fetch().done((isConnected) => {
             this.setState({isConnected: isConnected});
         });
