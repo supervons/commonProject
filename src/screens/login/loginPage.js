@@ -54,20 +54,20 @@ export default class LoginPage extends Component {
         }catch (e) {
 
         }
+        JPushModule.initPush();
         if (Platform.OS !== 'ios') {
-            JPushModule.initPush();
             JPushModule.notifyJSDidLoad((resultCode) => {
                 if (resultCode === 0) {
                 }
             });
-            JPushModule.addReceiveNotificationListener((map) => {
-                console.log("alertContent: " + map.alertContent);
-                console.log("extras: " + map.extras);
-            });
-            JPushModule.addReceiveOpenNotificationListener((map) => {
-                this.props.navigation.replace('MainPage', {param: {}});
-            });
         }
+        JPushModule.addReceiveNotificationListener((map) => {
+            console.log("alertContent: " + map.alertContent);
+            console.log("extras: " + map.extras);
+        });
+        JPushModule.addReceiveOpenNotificationListener((map) => {
+            this.props.navigation.replace('MainPage', {param: {}});
+        });
         //检测网络是否连接
         NetInfo.isConnected.fetch().done((isConnected) => {
             this.setState({isConnected: isConnected});
