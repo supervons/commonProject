@@ -4,8 +4,8 @@
  * user main page
  */
 import React, {Component} from 'react';
-import {TouchableNativeFeedback, Alert} from 'react-native';
-import {Container, Header, Content, Badge, Footer, FooterTab, Button, Icon, Text} from 'native-base';
+import {Linking, Alert, StyleSheet} from 'react-native';
+import {Container, Content, Button, Icon, Text} from 'native-base';
 import * as WeChat from 'react-native-wechat';
 import Realm from "realm";
 export default class MainPage extends Component {
@@ -59,7 +59,7 @@ export default class MainPage extends Component {
                         description: '这是一个测试的分享内容',
                         thumbImage: '../image/loginPage/login.jpeg',
                         type: 'news',
-                        webpageUrl: 'www.baidu.com'
+                        webpageUrl: 'github.com/supervons/commonProject'
                     })
                         .catch((error) => {
                             Alert.alert(error.message);
@@ -70,18 +70,30 @@ export default class MainPage extends Component {
             });
     }
 
+    toProjectUrl(){
+        Linking.openURL("https://github.com/supervons/commonProject")
+    }
+
     render() {
         return (
             <Container>
                 <Content>
-                    <Button block onPress={this.toLoginPage}>
-                        <Text>退出</Text>
-                    </Button>
-                    <Button block onPress={this.toShareWeixin}>
+                    <Button full light style={styles.buttonStyle} onPress={this.toShareWeixin}>
                         <Text>微信分享</Text>
+                    </Button>
+                    <Button full light style={styles.buttonStyle} onPress={this.toProjectUrl}>
+                        <Text>项目地址</Text>
+                    </Button>
+                    <Button full light style={styles.buttonStyle} onPress={this.toLoginPage}>
+                        <Text>退出</Text>
                     </Button>
                 </Content>
             </Container>
         );
     }
 }
+const styles = StyleSheet.create({
+    buttonStyle: {
+        marginTop: 5
+    },
+});

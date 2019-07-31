@@ -32,7 +32,8 @@
     "react-navigation": "^2.9.1",
     "react-redux": "^4.4.9",
     "realm": "^2.28.0",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "rn-viewpager": "^1.2.9"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

@@ -4,6 +4,7 @@
  * user main page
  */
 import React, {Component} from 'react';
+import {View, ImageBackground} from 'react-native'
 import {
     Container,
     Content,
@@ -11,14 +12,13 @@ import {
     Button,
     Text,
     Card,
-    CardItem,
-    Body
+    CardItem
 } from 'native-base';
 
-import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import CommonStyles from '../common/CommonProperties/CommonStyle';
 import Realm from 'realm';
 import Orientation from 'react-native-orientation';
+import {IndicatorViewPager, PagerDotIndicator} from 'rn-viewpager';
 
 import {connect} from 'react-redux';
 
@@ -105,33 +105,32 @@ class MainPage extends Component {
         Toast.show({text:'新功能开发中',type:'success'});
     }
 
+    _renderDotIndicator() {
+        return <PagerDotIndicator pageCount={3} />;
+    }
+
     render() {
         return (
             <Container>
                 <Content>
-                    <Card style={{marginTop: 50}}>
-                        <CardItem>
-                            <Body>
-                            <Text>
-                                这是一个用于累积功能的轮子项目
-                            </Text>
-                            <Text>
-                                This is a wheel project for cumulative functions
-                            </Text>
-                            </Body>
-                        </CardItem>
-                        <CardItem footer>
-                            <Text>GitHub:https://github.com/supervons/commonProject</Text>
-                        </CardItem>
-                        <CardItem style={CommonStyles.centerStyle}>
-                            <Text>
-                                以下为功能模块
-                            </Text>
-                        </CardItem>
+                    <View>
+                        <View style={{flex:1}}>
+                            <IndicatorViewPager
+                                style={{height:200}}
+                                indicator={this._renderDotIndicator()}
+                            >
+                            <ImageBackground source={require("../resource/image/titleImage/alita.jpeg")}
+                                             style={{resizeMode: 'contain'}}/>
+                            <ImageBackground source={require("../resource/image/titleImage/title.jpg")}
+                                             style={{resizeMode: 'contain'}}/>
+                            <ImageBackground source={require("../resource/image/titleImage/alita.jpeg")}
+                                             style={{resizeMode: 'contain'}}/>
+                        </IndicatorViewPager>
+                        </View>
                         <CardItem style={CommonStyles.centerStyle}>
                             <Text style={{color:'red'}}>Redux 中 value = {this.props.text}</Text>
                         </CardItem>
-                    </Card>
+                    </View>
 
                     <Card style={{marginTop: 30}}>
                         <CardItem style={CommonStyles.centerStyle}>
