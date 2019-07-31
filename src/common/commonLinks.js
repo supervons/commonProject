@@ -1,8 +1,8 @@
 /**
  * Created by supervons on 2019/2/21.
  */
-// let hostUrl = 'http://47.93.31.98:8080/commonProject/';//app外网测试环境
-let hostUrl = 'http://localhost:8080/commonProject/';//app外网测试环境
+let hostUrl = 'http://47.93.31.98:8080/commonProject/';//app外网测试环境
+// let hostUrl = 'http://localhost:8080/commonProject/';//app外网测试环境
 
 const commonLinks = {
     /**

@@ -24,6 +24,14 @@ import {connect} from 'react-redux';
 
 class MainPage extends Component {
 
+    static navigationOptions = {
+        title: '首页',
+        gesturesEnabled: false,
+        headerStyle: {                                 //导航栏样式设置
+            backgroundColor: '#8bc9ff',
+        },
+    };
+
     constructor(props) {
         super(props);
         this.toSpinnerShows = this.toSpinnerShows.bind(this);
@@ -40,14 +48,6 @@ class MainPage extends Component {
             orientation:'PORTRAIT',
         });
     }
-
-    static navigationOptions = {
-        title: '首页',
-        gesturesEnabled: false,
-        headerStyle: {                                 //导航栏样式设置
-            backgroundColor: '#8bc9ff',
-        },
-    };
 
     componentDidMount() {
         Orientation.addOrientationListener((orientation) =>this.setState({orientation:orientation}));
@@ -116,6 +116,7 @@ class MainPage extends Component {
                     <View>
                         <View style={{flex:1}}>
                             <IndicatorViewPager
+                                autoPlayEnable={true}
                                 style={{height:200}}
                                 indicator={this._renderDotIndicator()}
                             >

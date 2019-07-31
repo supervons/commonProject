@@ -18,6 +18,13 @@ import NewsAction from '../../common/actions/newsAction';
 
 export default class News extends Component {
 
+    static navigationOptions = {
+        title: '新闻',
+        headerStyle: {                                 //导航栏样式设置
+            backgroundColor: '#8bc9ff',
+        },
+    }
+
     constructor(props) {
         super(props);
         this.returnRender = this.returnRender.bind(this);
@@ -36,14 +43,6 @@ export default class News extends Component {
             isRefreshing: false,//下拉控制
             totalPageCount: 0,
         });
-    }
-
-    static navigationOptions = {
-        title: '新闻',
-        gesturesEnabled: false,
-        headerStyle: {                                 //导航栏样式设置
-            backgroundColor: '#8bc9ff',
-        },
     }
 
     componentDidMount() {

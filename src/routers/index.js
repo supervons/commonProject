@@ -1,5 +1,5 @@
 import React from 'react';
-import {createMaterialTopTabNavigator, createStackNavigator} from "react-navigation";
+import {createAppContainer, createMaterialTopTabNavigator, createStackNavigator} from "react-navigation";
 import MainPage from "../screens/MainPage";
 import {Image} from "react-native";
 import News from "../screens/news/news";
@@ -14,7 +14,6 @@ import TouchIdView from "../screens/touchId/touchIdView";
 import CodePushScreen from "../screens/codePush/CodePushScreen";
 import EchartsView from "../components/sEchartsTest/EchartsView";
 import CalendarsDemo from "../components/calendars/CalendarsDemo";
-import StackViewStyleInterpolator from "react-navigation/src/views/StackView/StackViewStyleInterpolator";
 
 const Tabs = createMaterialTopTabNavigator({
     MainPage: {
@@ -75,7 +74,8 @@ const Tabs = createMaterialTopTabNavigator({
         },
     },
 });
-const RootStack = createStackNavigator({
+
+const Router = createStackNavigator({
         Login: { //登录界面
             screen: LoginPage
         },
@@ -118,22 +118,10 @@ const RootStack = createStackNavigator({
     },
     {//定义配置
         initialRouteName: 'Login',     //设置初始路由为登录界面
-        navigationOptions: {           //导航栏通用设置
-            headerStyle: {
-                backgroundColor: '#7276ff',
-            },
-            headerMode: 'screen',
-        },
-        transitionConfig: () => ({
-            /**
-             * 1、从右向左：  forHorizontal；
-             * 2、从下向上：  forVertical；
-             * 3、安卓那种的从下向上： forFadeFromBottomAndroid；
-             * 4、无动画：  forInitial。
-             */
-            screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-        })
+        headerMode: 'screen'
     },
 )
 
+// 外层包裹，3.x不允许直接导出路由
+const RootStack = createAppContainer(Router)
 module.exports = RootStack;

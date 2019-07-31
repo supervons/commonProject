@@ -21,8 +21,6 @@ export default class MainPage extends Component {
     }
 
     static navigationOptions = {
-        title: '我的',
-        gesturesEnabled: false,
         headerStyle: {                                 //导航栏样式设置
             backgroundColor: '#8bc9ff',
         },
