@@ -1913,6 +1913,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODEPUSH_HOST = "http://codepush.chinazhizao2025.cn:3000/";
 				CODEPUSH_KEY = NYYHAyl6Aqevrd0esD5Mr07rInpf4ksvOXqog;
 				CODE_SIGN_ENTITLEMENTS = commonProject/commonProject.entitlements;
@@ -1955,6 +1956,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODEPUSH_HOST = "http://codepush.chinazhizao2025.cn:3000/";
 				CODEPUSH_KEY = NVg9I1WWbY8m6j1R0FIKhVgpmITn4ksvOXqog;
 				CODE_SIGN_ENTITLEMENTS = commonProject/commonProject.entitlements;
@@ -2185,6 +2187,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODEPUSH_HOST = "http://codepush.chinazhizao2025.cn:3000/";
 				CODEPUSH_KEY = NYYHAyl6Aqevrd0esD5Mr07rInpf4ksvOXqog;
 				CODE_SIGN_ENTITLEMENTS = commonProject/commonProject.entitlements;
