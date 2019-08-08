@@ -1945,7 +1945,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gzzn.commonproject;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gzzn.weather;
 				PRODUCT_NAME = commonProject;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1987,7 +1987,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gzzn.commonproject;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gzzn.weather;
 				PRODUCT_NAME = commonProject;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2217,7 +2217,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gzzn.commonproject;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gzzn.weather;
 				PRODUCT_NAME = commonProject;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";

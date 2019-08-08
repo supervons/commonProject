@@ -6,6 +6,7 @@ import News from "../screens/news/news";
 import PersonalCenter from "../screens/personalCenter/personalCenter";
 import LoginPage from "../screens/login/loginPage";
 import Register from "../screens/registered/register";
+import UserProtocol from "../screens/registered/user-protocol";
 import SpinnerShows from "../screens/spinner/spinnerShows";
 import ReduxTest from "../screens/redux/ReduxTest";
 import ImagePickerComponents from "../screens/imagePicker/imagePickerComponents";
@@ -87,6 +88,9 @@ const Router = createStackNavigator({
         },
         Register: {// 注册页面
             screen: Register
+        },
+        UserProtocol: {// 注册页面
+            screen: UserProtocol
         },
         SpinnerShows: {// 加载动画页面
             screen: SpinnerShows

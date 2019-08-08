@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 import {
     StyleSheet,
     Dimensions,
+    Linking
 } from 'react-native';
 
 import {createForm} from 'rc-form';
-import {Container, Content, Form, Item, Input, Label, Button, Text,} from 'native-base';
+import {Container, Content, Form, Item, CheckBox,  Input, Label, Button, Text,} from 'native-base';
 import CommonStyle from '../../common/CommonProperties/CommonStyle';
 import FormItem from './formItem';
 import Toast from '../../components/toast/toast';
@@ -28,7 +29,8 @@ class Register extends Component {
         this.submit = this.submit.bind(this);
         this.state = ({
             loginId: '',
-            passWord: ''
+            passWord: '',
+            agree: false
         });
     }
 
@@ -51,6 +53,10 @@ class Register extends Component {
         if (this.state.loginId === '' || this.state.passWord === '') {
             Toast.showToast('请完善注册信息');
         } else {
+            if(!this.state.agree){
+                Toast.showToast('请先阅读并同意协议');
+                return;
+            }
             // 用户注册
             OperationActions.userRegisterAction({
                 loginId: loginId,
@@ -100,6 +106,11 @@ class Register extends Component {
                             <Label>密码/Password</Label>
                             <Input secureTextEntry={true}
                                    onChangeText={(text) => this.setState({passWord: text})}/>
+                        </Item>
+                        <Item style={{marginTop: 15, borderColor:'#ffffff'}}>
+                            <CheckBox checked={this.state.agree} onPress={() => this.setState({agree: !this.state.agree})}/>
+                            <Text style={{marginLeft: 15}}>我已阅读并同意</Text>
+                            <Text onPress={()=>this.props.navigation.push('UserProtocol')} style={{color: 'green'}}>《RNWheel用户协议》</Text>
                         </Item>
                         <Button block style={CommonStyle.buttonStyle}
                                 onPress={this.submit}>
