@@ -60,15 +60,15 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>您好，我们需要您授权才可以访问相册</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Enabling Face ID allows you quick and secure access to your account.</string>
+	<string>您好，我们需要您授权才可以访问人脸识别</string>
 	<key>NSLocationUsageDescription</key>
-	<string></string>
+	<string>您好，我们需要您授权才可以访问定位</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>您好，我们需要您授权才可以访问定位</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>此 App 需要您的同意才能读取媒体资料库</string>
+	<string>您好，我们需要您授权才可以媒体资料库</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
