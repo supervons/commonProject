@@ -2,6 +2,10 @@ commonProject
 =
     基于react-native v0.59.8版本创建的通用项目，目的在于累积组件，拓展业务新能力。
     commonProject base on react-native v0.59.8
+# 测试账号
+    username：test 
+    password：test
+-
 # 目的与意义
     你可以基于本项目创建一个沙盒项目，用于研究新功能来扩展现有业务。
     当然你也可以基于本项目来进行开发，要是能告诉我那就更好了。
