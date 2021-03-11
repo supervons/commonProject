@@ -1,3 +1,8 @@
+New Version
+=
+The new project git url：[NEW-VERSION](https://github.com/supervons/ExploreRN)
+URL:https://github.com/supervons/ExploreRN
+
 commonProject
 =
     基于react-native v0.59.8版本创建的通用项目，目的在于累积组件，拓展业务新能力。
