@@ -1,4 +1,9 @@
-New Version
+注意：本仓库原则上已不再更新！
+=
+新仓库地址：[NEW-VERSION](https://github.com/supervons/ExploreRN)
+URL地址:https://github.com/supervons/ExploreRN
+
+Note: this warehouse is no longer updated in principle!
 =
 The new project git url：[NEW-VERSION](https://github.com/supervons/ExploreRN)
 URL:https://github.com/supervons/ExploreRN
